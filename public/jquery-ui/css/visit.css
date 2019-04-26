@@ -1,0 +1,32 @@
+h1 {
+    text-align: center;
+}
+
+#selectable .ui-selecting {
+    background-color: gray;
+}
+
+#selectable .ui-selected {
+    background-color: black;
+    color: white;
+}
+
+div #successMsg {
+  text-align: center;
+  color: green;
+
+}
+
+ #heads {
+  color: #3399FF;
+}
+
+#submit {
+  border-radius: 5px;
+  color: #3399FF;
+}
+
+input [name="days"] {
+    width:500px; 
+    height:50px;
+}

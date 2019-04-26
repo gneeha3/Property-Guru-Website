@@ -1,0 +1,75 @@
+body, html {
+  height: 100%;
+  margin:0;
+  overflow-y: hidden;
+}
+.icon{
+    width: 160px;
+    height: 80px;
+}
+
+  .wrap_header {
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    position: relative;
+    border: 1px solid black;
+  }
+
+  .header-icons {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 52px;
+    top: 50%;
+
+  }
+
+  .header-icon1,
+  .header-icon2 {
+    height: 27px;
+    position: relative;
+    font-size:large;
+    color:black;
+    font-weight:bold;
+  }
+
+
+  .line {
+    display: block;
+    height: 20px;
+    width: 1px;
+    background-color: black;
+    margin-left: 23px;
+    margin-right: 23px;
+    margin-top: 5px;
+  }
+
+  .background-image{
+    background-image: url('../images/landing.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    background-size: cover;
+    opacity: 0.9;
+  }
+
+  .search_place{
+            position: absolute;
+            top : 350px;
+            left: 450px;
+  }
+
+  input[name="search"]{
+  		width:400px ;
+  		height:40px ;
+        font-size:large;
+  }
+
+   .search_place input[type="submit"]{
+  		width:100px;
+  		height:40px;
+  		font-size:large;
+      font-weight:bold;
+
+  }

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Travel Guru About page</title>
+<link rel="stylesheet" href="stylesheets/landing.css" />
+<link rel="stylesheet" href="stylesheets/register.css" />
+<link rel="stylesheet" href="stylesheets/about.css" />
+
+<script type="text/javascript">
+
+        var con,con1,world;
+        var image;
+        var clear;
+        var x  = 550;
+        var y  = 0;
+        var dx = 10;
+        var dy = 7;
+        var text, step, steps = 0;
+        delay = 20;
+
+        function init()
+        {
+            world = document.getElementById("world");
+            text = document.getElementById("text");
+            con = world.getContext("2d");
+            con1 = text.getContext("2d");
+            con.fillStyle = "white";
+            image = new Image();
+            image.src = "./images/globe.jpeg";
+            image.addEventListener('load', function() {
+  				con.drawImage(image, x, y,200,200);
+			}, false);
+
+
+            world.onmouseover=function() {mouseOver()};
+            world.onmouseout=function() {mouseOut()};
+
+            con1.fillStyle = "blue";
+            con1.font = "20pt Verdana";
+            con1.textAlign = "center";
+            con1.textBaseline = "middle";
+            con1.shadowOffsetX = 3;
+		    con1.shadowOffsetY = 3;
+		    con1.shadowColor = "gray";
+		    con1.shadowBlur = 5;
+
+            step = 0;
+            steps = text.width + 50;
+
+            moveTextLeftToRight();
+        }
+
+        function draw()
+        {
+            con.clearRect(0, 0, world.width, world.height);
+  			con.drawImage(image, x, y,200,200);
+
+  			x += dx;
+            y += dy;
+
+            if ((x < 0) || (x > 0)) dx = -dx;
+            if ((y < 0) || (y > 0)) dy = -dy;
+
+        }
+
+        function mouseOver(event)
+        {
+        clear = setInterval(draw,200);
+        }
+
+        function mouseOut(event)
+        {
+        clearInterval(clear);
+        }
+
+        function moveTextLeftToRight() {
+            step++;
+            con1.clearRect(0, 0, text.width, text.height);
+            con1.save();
+            con1.translate(step, text.height / 2);
+            con1.fillText("Register today to unlock great travel deals !!", 290, 0);
+            con1.restore();
+            if (step == steps)
+                step = 0;
+            if (step < steps)
+                var t = setTimeout('moveTextLeftToRight()', delay);
+        }
+
+        document.onkeyup = function(e){
+          con.clearRect(0, 0, world.width, world.height);
+          //Left key pressed
+          if (e.keyCode == '37'){
+          if (x>50){
+          x=x-100;
+          con.drawImage(image, x, y,200,200);
+          }
+          else{
+          x=550;
+          con.drawImage(image, x, y,200,200);
+          }
+
+        }
+          //Right Key pressed
+          if (e.keyCode == '39'){
+          if (x<1050){
+          x=x+100;
+          con.drawImage(image, x, y,200,200);
+          }
+          else{
+          x=550;
+          con.drawImage(image, x, y,200,200);
+          }
+
+      }
+        }
+
+   </script>
+</head>
+
+<body onload="init()">
+
+	<div class="wrap_header">
+		<a href="/"><img src="images\icon.jpg" alt="IMG-LOGO" class="icon" /></a>
+		<div class="header-icons">
+			<a href="/" class="header-icon1"> Home</a> <span class="line"></span>
+			<a href="/about" class="header-icon1"> About</a> <span class="line"></span>
+      <a href="/dashboard" class="header-icon1"> Dashboard</a> <span class="line"></span>
+			<a href="/survey" class="header-icon1"> Survey</a> <span class="line"></span>
+      <a href="/admin" class="header-icon2">Admin</a> <span class="line"></span>
+			<a href="/register" class="header-icon1"> Register</a> <span
+				class="line"></span> <a href="/login" class="header-icon2">
+				Login</a>
+		</div>
+	</div>
+    <div>
+      <div class="dashboard">
+        <h4>House Sales in California, 2008-2018</h4>
+      <!-- <p>
+        <ul>
+          <li>Average house rates in dollars in California</li>
+          <li>Percentage increase in house property values</li>
+          <li>Top counties with highet average Sales</li>
+          <li>Average house rates by number of bedrooms</li>
+          <li>Average house rates by county</li>
+        </ul></p> -->
+
+<!-- Tablaeu Online
+<script type='text/javascript' src='https://10ay.online.tableau.com/javascripts/api/viz_v1.js'></script>
+<div class='tableauPlaceholder' style='width: 1269px; height: 630px;'>
+  <object class='tableauViz' width='1269' height='630' style='display:none;'>
+    <param name='host_url' value='https%3A%2F%2F10ay.online.tableau.com%2F' />
+     <param name='embed_code_version' value='3' />
+     <param name='site_root' value='&#47;t&#47;cmpe280' />
+     <param name='name' value='Dashboard-New&#47;Dashboard1' />
+     <param name='tabs' value='no' />
+     <param name='toolbar' value='no' />
+     <param name='showAppBanner' value='false' />
+     <param name='filter' value='iframeSizedToWindow=true' />
+   </object>
+ </div> -->
+
+<!-- Embedded from Tableau Public -->
+ <div class='tableauPlaceholder' id='viz1555981070945' style='position: fixed'>
+   <noscript>
+     <a href='#'>
+     <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Tr&#47;Travelguru&#47;Dashboard1&#47;1_rss.png' style='border: none' />
+   </a>
+ </noscript>
+   <object class='tableauViz'  style='display:none;'>
+    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+    <param name='embed_code_version' value='3' />
+    <param name='site_root' value='' />
+     <param name='name' value='Travelguru&#47;Dashboard1' />
+     <param name='tabs' value='no' />
+     <param name='toolbar' value='no' />
+     <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Tr&#47;Travelguru&#47;Dashboard1&#47;1.png' />
+     <param name='animate_transition' value='no' />
+     <param name='display_static_image' value='no' />
+     <param name='display_spinner' value='no' />
+     <param name='display_overlay' value='no' />
+     <param name='display_count' value='no' />
+   </object>
+ </div>
+          <script type='text/javascript'>
+             var divElement = document.getElementById('viz1555981070945');
+             var vizElement = divElement.getElementsByTagName('object')[0];
+             if ( divElement.offsetWidth > 800 ) {
+               vizElement.style.width='1200px';vizElement.style.height='927px';
+           }
+              else if ( divElement.offsetWidth > 500 ) {
+                vizElement.style.width='1200px';vizElement.style.height='927px';
+              }
+            else {
+              vizElement.style.width='100%';vizElement.style.height='927px';
+            }
+
+            var scriptElement = document.createElement('script');
+           scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+            </script>
+
+
+<div>
+</div>
+
+</body>
+</html>

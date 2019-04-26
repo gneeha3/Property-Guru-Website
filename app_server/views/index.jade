@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1.
+   Welcome to #{title}
+  if message
+        p #{message}
+  div
+   form#formOptions(name="options" method="post")
+        button#btnload(type="submit",formaction="/data",class="button") Load bulk Data
+  div
+   form#formGet(name="getForm" method="get")
+        button#btnadd(type="submit",formaction="/admin",class="button") Add Destination
+        div
+         button#btnedit(type="submit",formaction="/userlist",class="button") Display all Destinations
+        div
+         button#btnedit(type="submit",formaction="/update",class="button") Search Hotel
+  

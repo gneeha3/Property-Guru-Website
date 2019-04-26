@@ -1,0 +1,35 @@
+h1 {
+    text-align: center;
+}
+
+#selectable .ui-selecting {
+    background-color: gray;
+}
+
+#selectable .ui-selected {
+    background-color: black;
+    color: white;
+}
+
+#custom-handle {
+  width: 4em;
+  height: 1.5em;
+  top: 50%;
+  margin-top: -.8em;
+  text-align: center;
+  line-height: 1em;
+}
+
+ #heads {
+  color: #3399FF;
+}
+
+#submit {
+  border-radius: 5px;
+  color: #3399FF;
+}
+
+#resize {
+   width:400px;
+   height:130px;
+}

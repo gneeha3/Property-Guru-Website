@@ -1,0 +1,29 @@
+extends layout
+
+block content
+	if(destlist.length)
+		each hotel in destlist
+			form(method="post" class="form")
+				fieldset
+					legend Update or Delete Destination
+
+					label(for="city" class="form-label") City:
+					input(type="text" value= "#{hotel.city}" name="city" readonly)
+					div
+					label(for="hotel_name" class="form-label") Hotel Name:
+					input(type="text" value= "#{hotel.hotel_name}" name="hotel_name" readonly)
+					div
+					label(for="hotel_address" class="form-label") Address:
+					input(type="text" value= "#{hotel.hotel_address}" name="hotel_address")
+					div
+					label(for="phone" class="form-label") Phone:
+					input(type="text" value= "#{hotel.phone}" name="phone")
+					div
+					label(for="cost" class="form-label") Price:
+					input(type="text" value= "#{hotel.cost}" name="cost")
+					div
+					button#btnedit(type="submit",formaction="/updatedest" class="form-buttons") Update
+					button#btnedit(type="submit",formaction="/deletedest" class="form-buttons") Delete
+	else
+		h1.
+			There is no data to display
