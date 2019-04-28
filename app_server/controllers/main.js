@@ -119,7 +119,7 @@ module.exports.postLogin = function(req,res)
     	res.render('loggedin', { name: matches[0].firstName});
     }
 };
-<<<<<<< HEAD
+
 
 
 module.exports.search = function(req,res)
@@ -169,5 +169,4 @@ module.exports.buySearch = function(req,res)
 	res.render('buySearch');
 
 };
-=======
->>>>>>> b5f56506d06c3ed78b55195214dd37669b103c75
+
