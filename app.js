@@ -6,9 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
-//MongoDB setup
-//var mongo = require('mongodb').MongoClient;
-//var url = "mongodb://localhost:27017/travelGuru";
+
 var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('localhost:27017/travelguru');
@@ -24,7 +22,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'app_server','public')));
 app.use(function(req, res, next)
         {
             req.db = db;

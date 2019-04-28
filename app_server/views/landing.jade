@@ -1,0 +1,162 @@
+doctype html
+html
+  head
+    meta(charset='ISO-8859-1')
+    title Property Guru
+    link(rel='stylesheet', href='/styles/landing.css', type="text/css")
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
+    script(src='/scripts/landing.js')
+  body
+    div
+      header
+        nav.navbar.navbar-dark.navbar-expand-lg.bg-dark.fixed-top.scrolling-navbar
+          #header_bar.container
+            a.navbar-brand(href='#') Property Guru
+            #basicExampleNav.collapse.navbar-collapse
+              ul.navbar-nav.mr-auto
+                li.nav-item
+                  a.nav-link(href='#') Home
+                li.nav-item
+                  a.nav-link(href='#services') Services
+                li.nav-item
+                  a.nav-link(href='#contact') Contact
+                li.nav-item
+                  a.nav-link(href='#contact') Dashboard
+              ul.navbar-nav.ml-auto
+                li.nav-item
+                  a.nav-link(href='')
+                    i.fa.fa-sign-in.nav-item(aria-hidden='true')
+                    |  Login
+                li.nav-item
+                  a.nav-link(href='')
+                    i.fa.fa-user-plus.nav-item(aria-hidden='true')
+                    |  Register
+      // Main Navigation
+      // Main layout
+      main
+        .container
+          section#gallery
+            #carousel.carousel.slide.carousel-fade(data-ride='carousel')
+              ol.carousel-indicators
+                li.active(data-target='#carousel', data-slide-to='0')
+                li(data-target='#carousel', data-slide-to='1')
+                li(data-target='#carousel', data-slide-to='2')
+              .carousel-inner.z-depth-1-half(role='listbox')
+                .carousel-item.active
+                  img.d-block.w-100(src='/images/1.jpg', alt='First slide')
+                .carousel-item
+                  img.d-block.w-100(src='/images/2.jpg', alt='Second slide')
+                .carousel-item
+                  img.d-block.w-100(src='/images/3.jpeg', alt='Third slide')
+              a.carousel-control-prev(href='#carousel', role='button', data-slide='prev')
+                span.carousel-control-prev-icon(aria-hidden='true')
+                span.sr-only Previous
+              a.carousel-control-next(href='#carousel', role='button', data-slide='next')
+                span.carousel-control-next-icon(aria-hidden='true')
+                span.sr-only Next
+          br
+          section#arrow
+            a(href='#services')
+              svg.arrows
+                path.a1(d='M0 0 L30 32 L60 0')
+                path.a2(d='M0 20 L30 52 L60 20')
+                path.a3(d='M0 40 L30 72 L60 40')
+          section#services.text-center
+            h2.mb-5.font-weight-bold Our Services
+            .row.d-flex.justify-content-center.mb-4
+              .col-md-8
+                p
+                  | Your dream house is a click away.Buy and
+                  | Sell properties without hassle for best price
+            .row
+              .col-lg-4.col-md-12.mb-4
+                .z-depth-1-half
+                  img.img-fluid(src='/images/buy.jpg', alt='')
+                h4.my-4.font-weight-bold Buy
+                p
+                  | Contact house owners directly for best
+                  | deals by avoiding paying extra money to third party brokers
+              .col-lg-4.col-md-6.mb-4
+                .z-depth-1-half
+                  img.img-fluid(src='/images/sell.jpg', alt='')
+                h4.my-4.font-weight-bold Sell
+                p
+                  | Get in contact with potential buyers to
+                  | sell your house for best price.
+              .col-lg-4.col-md-6.mb-4
+                .z-depth-1-half
+                  img.img-fluid(src='/images/compare.jpg', alt='')
+                h4.my-4.font-weight-bold Information
+                p
+                  | visualize house price changes over past
+                  | years to decide your right fit
+          // Section: Contact
+          section#contact
+            // Heading
+            h2.mb-5.font-weight-bold.text-center Contact us
+            // Grid row
+            .row
+              // Grid column
+              .col-lg-5.col-md-12
+                // Form contact
+                form.p-5
+                  .md-form.form-sm
+                    i.fa.fa-user.prefix
+                    input#form3.form-control.form-control-sm(type='text')
+                    label(for='form3') Your name
+                  .md-form.form-sm
+                    i.fa.fa-envelope.prefix
+                    input#form2.form-control.form-control-sm(type='text')
+                    label(for='form2') Your email
+                  .md-form.form-sm
+                    i.fa.fa-tag.prefix
+                    input#form32.form-control.form-control-sm(type='text')
+                    label(for='form34') Subject
+                  .md-form.form-sm
+                    i.fa.fa-pencil.prefix
+                    textarea#form8.md-textarea.form-control.form-control-sm(type='text', rows='4')
+                    label(for='form8') Your message
+                  .text-center.mt-4
+                    button.btn.btn-dark
+                      | Send 
+                      i.fa.fa-paper-plane-o.ml-1
+              .col-lg-7.col-md-12
+                .row.text-center
+                  .col-lg-4.col-md-12.mb-3
+                    p
+                      i.fa.fa-map.fa-1x.mr-2
+                      | San Jose,CA,95110
+                  .col-lg-4.col-md-6.mb-3
+                    p
+                      i.fa.fa-building.fa-1x.mr-2
+                      | Mon - Fri,8:00-22:00
+                  .col-lg-4.col-md-6.mb-3
+                    p
+                      i.fa.fa-phone.fa-1x.mr-2
+                      | +1 999-999-9999
+                #map-container.z-depth-1-half.map-container.mb-5(style='height: 400px')
+      footer.page-footer.font-small.unique-color-dark
+        .primary-color
+          .container
+            .row.py-4.d-flex.align-items-center
+              .col-md-6.col-lg-5.text-center.text-md-left.mb-4.mb-md-0
+                h6.mb-0.white-text
+                  | Get connected with us on social
+                  | networks!
+              .col-md-6.col-lg-7.text-center.text-md-right
+                a.fb-ic.ml-0
+                  i.fa.fa-facebook.white-text.mr-4  
+                a.tw-ic
+                  i.fa.fa-twitter.white-text.mr-4
+                a.gplus-ic
+                  i.fa.fa-google-plus.white-text.mr-4  
+                a.li-ic
+                  i.fa.fa-linkedin.white-text.mr-4
+                a.ins-ic
+                  i.fa.fa-instagram.white-text.mr-lg-4  
+        .text-center.py-3
+          | © 2018 Copyright: Igniters
