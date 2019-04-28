@@ -54,8 +54,7 @@ module.exports.home = function(req,res)
 //Get registration page
 module.exports.register = function(req,res)
 {
-	res.sendFile('register.html', { root: path.join(__dirname, '../../public') });
-
+	res.render('register');
 };
 
 //Get login page
