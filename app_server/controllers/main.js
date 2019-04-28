@@ -54,7 +54,7 @@ module.exports.home = function(req,res)
 //Get registration page
 module.exports.register = function(req,res)
 {
-	res.sendFile('register.html', { root: path.join(__dirname, '../../public/static') });
+	
 
 };
 
@@ -65,31 +65,9 @@ module.exports.login = function(req,res)
 
 };
 
-//Get about page
-module.exports.about = function(req,res)
-{
-	res.sendFile('about.html', { root: path.join(__dirname, '../../public') });
-
-};
-
-//Get admin page for add update delete travel destinations
-module.exports.admin = function(req,res)
-{
-	res.sendFile('admin.html', { root: path.join(__dirname, '../../public') });
-
-};
-
-//Get admin page for searching, updating and deleting destinations
-module.exports.update = function(req,res)
-{
-	res.sendFile('update.html', { root: path.join(__dirname, '../../public') });
-
-};
-
 //Get dashboard page
 module.exports.dashboard = function(req,res)
 {
-	res.sendFile('dashboard.html', { root: path.join(__dirname, '../../public') });
 
 };
 
@@ -142,6 +120,7 @@ module.exports.postLogin = function(req,res)
     	res.render('loggedin', { name: matches[0].firstName});
     }
 };
+<<<<<<< HEAD
 
 
 module.exports.search = function(req,res)
@@ -191,3 +170,5 @@ module.exports.buySearch = function(req,res)
 	res.render('buySearch');
 
 };
+=======
+>>>>>>> b5f56506d06c3ed78b55195214dd37669b103c75
