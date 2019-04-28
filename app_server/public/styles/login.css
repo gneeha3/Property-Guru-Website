@@ -5,8 +5,8 @@ align-content: center;
 
 .card{
 position:relative;
-height: 370px;
-margin-top: 100px;
+height: auto;
+margin-top: 80px;
 margin-bottom: auto;
 width: 400px;
 }
