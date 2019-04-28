@@ -54,7 +54,7 @@ module.exports.home = function(req,res)
 //Get registration page
 module.exports.register = function(req,res)
 {
-	res.sendFile('register.html', { root: path.join(__dirname, '../../public/static') });
+	
 
 };
 
@@ -65,31 +65,9 @@ module.exports.login = function(req,res)
 
 };
 
-//Get about page
-module.exports.about = function(req,res)
-{
-	res.sendFile('about.html', { root: path.join(__dirname, '../../public') });
-
-};
-
-//Get admin page for add update delete travel destinations
-module.exports.admin = function(req,res)
-{
-	res.sendFile('admin.html', { root: path.join(__dirname, '../../public') });
-
-};
-
-//Get admin page for searching, updating and deleting destinations
-module.exports.update = function(req,res)
-{
-	res.sendFile('update.html', { root: path.join(__dirname, '../../public') });
-
-};
-
 //Get dashboard page
 module.exports.dashboard = function(req,res)
 {
-	res.sendFile('dashboard.html', { root: path.join(__dirname, '../../public') });
 
 };
 
@@ -141,46 +119,4 @@ module.exports.postLogin = function(req,res)
     {
     	res.render('loggedin', { name: matches[0].firstName});
     }
-};
-
-
-module.exports.search = function(req,res)
-{
-	var city= req.body.search;
-
-    let matchedCity = cities.filter(val => {
-        return ((val.city === city));
-    })
-    res.render('search', {city:city ,hotels: matchedCity});
-};
-
-module.exports.survey = function(req,res)
-{
-	res.sendFile('survey.html', { root: path.join(__dirname, '../../public/jquery-ui') });
-};
-
-
-/*
- * GET home page.
- */
-module.exports.options = function(req, res)
-{
-    res.render('index', { "title": 'admin dashboard.' });
-};
-
-/*
- * GET new user page.
- */
-module.exports.get_newuser = function(req, res)
-{
-    res.render('newuser', { "title": 'Add New User' });
-};
-
-/*
- * GET delete user page.
- */
-module.exports.get_deleteuser = function(req, res)
-{
-    var uname = req.params.username;
-    res.render('deleteuser', { "username" : uname} );
 };
