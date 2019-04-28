@@ -184,3 +184,10 @@ module.exports.get_deleteuser = function(req, res)
     var uname = req.params.username;
     res.render('deleteuser', { "username" : uname} );
 };
+
+//Get buy search page
+module.exports.buySearch = function(req,res)
+{
+	res.render('buySearch');
+
+};

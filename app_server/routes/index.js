@@ -24,6 +24,9 @@ router.post('/deletedest', modelMain.post_deletedest)
 router.post('/updatedest', modelMain.post_updatedest)
 router.get('/dashboard', cntrMain.dashboard)
 
+//New jade templates for final version
+router.get('/buySearch', cntrMain.buySearch)
+
 
 
 module.exports = router;
