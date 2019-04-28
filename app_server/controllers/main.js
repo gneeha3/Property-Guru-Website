@@ -47,7 +47,6 @@ function sendPage(fileName, result)
 
 module.exports.home = function(req,res)
 {
-	//res.sendFile('landing.html', { root: path.join(__dirname, '../../public/static') });
 	res.render('landing');
 
 };
@@ -62,7 +61,6 @@ module.exports.register = function(req,res)
 //Get login page
 module.exports.login = function(req,res)
 {
-	//res.sendFile('login.html', { root: path.join(__dirname, '../../public/static') });
 	res.render('login');
 
 };
