@@ -14,6 +14,7 @@ router.get('/dashboard', cntrMain.dashboard)
 
 //New jade templates for final version
 router.get('/buySearch', cntrMain.buySearch)
+router.get('/propertyDetails', cntrMain.propertyDetails)
 
 
 
