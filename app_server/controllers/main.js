@@ -3,7 +3,6 @@
  */
 var lineReader = require('line-reader');
 var path = require('path');
-var registeredUsers = [];
 var request = require('request');
 
 /**
@@ -68,99 +67,6 @@ module.exports.login = function(req,res)
 module.exports.dashboard = function(req,res)
 {
 
-};
-
-module.exports.postRegister = function(req,res)
-{
-
-    var existingUser = registeredUsers.filter(function(user)
-    {
-    	return user.emailAddress === req.body.emailAddress;
-    });
-
-
-    if (existingUser.length > 0)
-    {
-    	//res.render('error.jade',{message: 'User already exists!!!'})
-		res.send("User Already exists! Please login with your credentials");
-    }
-
-
-    else
-    {
-    	var user = {    firstName: req.body.firstName,
-    					lastName: req.body.lastName,
-    					emailAddress: req.body.emailAddress,
-    					phoneNumber: req.body.phoneNumber,
-    					password: req.body.password
-                      };
-    	registeredUsers.push(user);
-    	console.log(req.body);
-    	res.redirect('/');
-    }
-};
-
-module.exports.postLogin = function(req,res)
-{
-    var matches = registeredUsers.filter(function(user)
-                  {
-                      return    (((user.emailAddress === req.body.emailAddress))
-                             && (user.password === req.body.password));
-                  });
-
-
-    if (matches.length === 0)
-    {
-		res.send("Invalid credentials..Please register before login !! ");
-
-    }
-    else
-    {
-    	res.render('loggedin', { name: matches[0].firstName});
-    }
-};
-
-
-
-module.exports.search = function(req,res)
-{
-	var city= req.body.search;
-
-    let matchedCity = cities.filter(val => {
-        return ((val.city === city));
-    })
-    res.render('search', {city:city ,hotels: matchedCity});
-};
-
-module.exports.survey = function(req,res)
-{
-	res.sendFile('survey.html', { root: path.join(__dirname, '../../public/jquery-ui') });
-};
-
-
-/*
- * GET home page.
- */
-module.exports.options = function(req, res)
-{
-    res.render('index', { "title": 'admin dashboard.' });
-};
-
-/*
- * GET new user page.
- */
-module.exports.get_newuser = function(req, res)
-{
-    res.render('newuser', { "title": 'Add New User' });
-};
-
-/*
- * GET delete user page.
- */
-module.exports.get_deleteuser = function(req, res)
-{
-    var uname = req.params.username;
-    res.render('deleteuser', { "username" : uname} );
 };
 
 //Get buy search page

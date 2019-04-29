@@ -4,9 +4,9 @@ align-content: center;
 }
 
 .card{
-position:relative;
+position:absolute !important;
 height: auto;
-margin-top: 80px;
+top: 80px;
 margin-bottom: auto;
 width: 400px;
 }
@@ -30,4 +30,11 @@ box-shadow: 0 0 0 0 !important;
 
 .links a{
 margin-left: 4px;
+}
+
+.error-msg{
+	position:relative;
+	top:80px;
+	left:20px;
+	
 }

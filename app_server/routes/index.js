@@ -8,8 +8,8 @@ var modelMain = require("../models/modelMain");
 router.get('/', cntrMain.home)
 router.get('/register', cntrMain.register)
 router.get('/login', cntrMain.login)
-router.post('/register', cntrMain.postRegister)
-router.post('/login', cntrMain.postLogin)
+router.post('/register', modelMain.postRegister)
+router.post('/login', modelMain.postLogin)
 router.get('/dashboard', cntrMain.dashboard)
 
 //New jade templates for final version
