@@ -59,37 +59,36 @@ html
                 span.carousel-control-next-icon(aria-hidden='true')
                 span.sr-only Next
           br
-          section#arrow
-            a(href='#services')
-              svg.arrows
-                path.a1(d='M0 0 L30 32 L60 0')
-                path.a2(d='M0 20 L30 52 L60 20')
-                path.a3(d='M0 40 L30 72 L60 40')
           section#services.text-center
-            h2.mb-5.font-weight-bold Buying Options can be searched below:
-            .row.d-flex.justify-content-center.mb-4
-              .col-md-8
-                p
-                  | Search for the property you want to buy.
-            form.p-5
-              .md-form.form-sm
-                i.fa.fa-tag.prefix
-                input#form32.form-control.form-control-sm(type='text', placeholder='Enter search criteria')
-              //  label(for='form34') Subject
-              .text-center.mt-4
-                button.btn.btn-dark
-                  | Search
-                  i.fa.fa-paper-plane-o.ml-1
-            .row
+          .row
               .col-lg-4.col-md-12.mb-4
                 .z-depth-1-half
                 a(href='#')
                   img.img-fluid(src='/images/buy.jpg', alt='Nothing to display')
-                h4.my-4.font-weight-bold Property 1
-                p
-                  | Property 1 information
-                  | To be fetched from database
+                h4.my-4.font-weight-bold Property 1 Heading Details
 
+              .col-lg-8.col-md-12.mb-4
+                .z-depth-1-half
+                a(href='#')
+
+                h4.my-4.font-weight-bold Property 1 Details
+                .tab
+                  button.tablinks(onclick="openTab(event, 'Info')") Information
+                  button.tablinks(onclick="openTab(event, 'Map')") Map
+                  button.tablinks(onclick="openTab(event, 'Contact')") Contact
+
+                #Information.tabcontent.default
+                  h3 Information
+                  p
+                  | Inforamtion about the property.
+                #Map.tabcontent.other
+                  h3 Map and Navigation
+                  p
+                  | Map and Navigation details.
+                #Contact.tabcontent.other
+                  h3 Contact
+                  p
+                  | Contact owner of the property
 
 
       //Section: Contact end
