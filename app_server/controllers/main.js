@@ -119,6 +119,10 @@ module.exports.postLogin = function(req,res)
     	res.render('loggedin', { name: matches[0].firstName});
     }
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6386ff2a18837be12c832190231e58a6088382e9
 
 
 module.exports.search = function(req,res)
@@ -169,9 +173,12 @@ module.exports.buySearch = function(req,res)
 
 };
 
+<<<<<<< HEAD
 //Details of searched/selected property
 module.exports.propertyDetails = function(req,res)
 {
 	res.render('propertyDetails');
 
 };
+=======
+>>>>>>> 6386ff2a18837be12c832190231e58a6088382e9
