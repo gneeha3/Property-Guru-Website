@@ -1,0 +1,75 @@
+doctype html
+html
+  head
+    meta(charset='ISO-8859-1')
+    title Property Guru
+    link(rel='stylesheet', href='/styles/landing.css', type='text/css')
+    link(rel='stylesheet', href='/styles/dashboard.css', type='text/css')
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
+    script(src='/scripts/landing.js')
+  body
+    div
+      header
+        nav.navbar.navbar-dark.navbar-expand-lg.bg-dark.fixed-top.scrolling-navbar
+          #header_bar.container
+            a.navbar-brand(href='/') Property Guru
+            #basicExampleNav.collapse.navbar-collapse
+              ul.navbar-nav.mr-auto
+                li.nav-item
+                  a.nav-link(href='/') Home
+                li.nav-item
+                  a.nav-link(href='#services') Services
+                li.nav-item
+                  a.nav-link(href='#contact') Contact
+                li.nav-item
+                  a.nav-link(href='#contact') Dashboard
+              ul.navbar-nav.ml-auto
+                li.nav-item
+                  a.nav-link(href='/login')
+                    i.fa.fa-sign-in.nav-item(aria-hidden='true')
+                    |  Login
+                li.nav-item
+                  a.nav-link(href='/register')
+                    i.fa.fa-user-plus.nav-item(aria-hidden='true')
+                    | 									Register
+      main
+        div
+          .dashboard
+            h4 House Sales in California, 2008-2018
+            // Embedded from Tableau Public
+            #viz1555981070945.tableauPlaceholder(style='position: fixed')
+              noscript
+                a(href='#')
+                  img(alt=' ', src='https://public.tableau.com/static/images/Tr/Travelguru/Dashboard1/1_rss.png', style='border: none')
+              object.tableauViz(style='display: none;')
+                param(name='host_url', value='https%3A%2F%2Fpublic.tableau.com%2F')
+                param(name='embed_code_version', value='3')
+                param(name='site_root', value='')
+                param(name='name', value='Travelguru/Dashboard1')
+                param(name='tabs', value='no')
+                param(name='toolbar', value='no')
+                param(name='static_image', value='https://public.tableau.com/static/images/Tr/Travelguru/Dashboard1/1.png')
+                param(name='animate_transition', value='no')
+                param(name='display_static_image', value='no')
+                param(name='display_spinner', value='no')
+                param(name='display_overlay', value='no')
+                param(name='display_count', value='no')
+            script(type='text/javascript').
+              var divElement = document.getElementById('viz1555981070945');
+              var vizElement = divElement.getElementsByTagName('object')[0];
+              if ( divElement.offsetWidth > 800 ) {
+              vizElement.style.width='1200px';vizElement.style.height='927px';
+              }
+              else if ( divElement.offsetWidth > 500 ) {
+              vizElement.style.width='1200px';vizElement.style.height='927px';
+              }
+              else {
+              vizElement.style.width='100%';vizElement.style.height='927px';
+              }
+              var scriptElement = document.createElement('script');
+              scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+              vizElement.parentNode.insertBefore(scriptElement, vizElement);

@@ -7,8 +7,8 @@ html
     link(rel='stylesheet', href='/styles/login.css')
     link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    script(src='/scripts/register.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
-    script(src='/scripts/login.js')
   body
     div
       header
@@ -38,50 +38,59 @@ html
         .container
           section
             .container
-              if(message)
-               .d-flex.justify-content-end.h-100.error-msg
-                .alert.alert-danger
-                  | #{message}   
-              .d-flex.justify-content-center.h-100       
-                .card 
+              .d-flex.justify-content-center.h-100
+                .card
                   .card-header
                     h3 Register
                   .card-body
-                    form(name="adduser",method="post",action="/register")
+                    form#adduser.needs-validation(name='adduser', method='post', action='/register', novalidate='')
                       .input-group.form-group
                         .input-group-prepend
                           span.input-group-text
                             i.fa.fa-user
-                        input.form-control(type='text', placeholder='First Name',name='firstName')
+                        input#firstName.form-control(type='text', placeholder='First Name', name='firstName', required='')
+                        .invalid-feedback Please enter First Name.
                       .input-group.form-group
                         .input-group-prepend
                           span.input-group-text
                             i.fa.fa-user
-                        input.form-control(type='text', placeholder='Last Name',name='lastName')
+                        input#lastName.form-control(type='text', placeholder='Last Name', name='lastName', required='')
+                        .invalid-feedback Please enter Last Name.
                       .input-group.form-group
                         .input-group-prepend
                           span.input-group-text
                             i.fa.fa-envelope
-                        input.form-control(type='text', placeholder='xxx@xxx.xxx',name='email')
+                        input#email.form-control(type='text', placeholder='xxx@xxx.xxx', name='email', required='', pattern='^.+@.+\..{2,4}$')
+                        .invalid-feedback
+                          | Please enter valid Email
+                          | Id.
                       .input-group.form-group
                         .input-group-prepend
                           span.input-group-text
                             i.fa.fa-phone
-                        input.form-control(type='text', placeholder='(999) 999-9999',name='phone')
+                        input#phone.form-control(type='text', placeholder='999 999-9999', name='phone', required='',pattern='^[0-9][0-9][0-9] +[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$')
+                        .invalid-feedback
+                           | Please enter valid Phone
+                           | Number.
                       .input-group.form-group
                         .input-group-prepend
                           span.input-group-text
                             i.fa.fa-key
-                        input.form-control(type='password', placeholder='Password',name='password')
+                        input#password.form-control(type='password', placeholder='Password', name='password', required='',pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$', onchange='form.confirmPassword.pattern = RegExp.escape(this.value);')
+                        .invalid-feedback
+                          | Please enter valid
+                          | password.
                       .input-group.form-group
                         .input-group-prepend
                           span.input-group-text
                             i.fa.fa-key
-                        input.form-control(type='password', placeholder='Confirm Password')
+                        input#confirmPassword.form-control(type='password', placeholder='Confirm Password', name='confirmPassword', required='')
+                        .invalid-feedback
+                          | Please enter valid
+                          | password.
                       .form-group
-                        input.btn.float-right.btn-dark(type='submit', value='Register')
+                        input.btn.float-right.btn-dark(onclick='validate()', type='submit', value='Register')
                   .card-footer
                     .d-flex.justify-content-center.links
                       | Already registered?
                       a(href='/login') Login
-           

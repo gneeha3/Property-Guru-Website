@@ -83,3 +83,11 @@ module.exports.propertyDetails = function(req,res)
 	res.render('propertyDetails');
 
 };
+
+//Get dashboard page
+module.exports.dashboard = function(req,res)
+{
+	res.render('dashboard');
+
+};
+
