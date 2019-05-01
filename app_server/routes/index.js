@@ -11,6 +11,7 @@ router.get('/login', cntrMain.login)
 router.post('/register', modelMain.postRegister)
 router.post('/login', modelMain.postLogin)
 router.get('/dashboard', cntrMain.dashboard)
+router.get('/logout', cntrMain.logout)
 
 //New jade templates for final version
 router.get('/buySearch', modelMain.buySearch)

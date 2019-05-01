@@ -87,3 +87,41 @@ module.exports.dashboard = function(req,res)
 
 };
 
+module.exports.loggedIn = function(req, res, next)
+{
+   console.log("Checking if logged in:");
+   if (req.session.user)
+   {
+       // Proceed if the user is logged in.
+       console.log("Logged in: "); 
+       console.log(req.session.user);
+       next(); 
+   } 
+   else 
+   {
+       console.log("Not logged in");
+       res.send("You must first log in.");
+   }
+};
+
+module.exports.logout = function(req, res)
+{
+   console.log("Logging out:");
+    
+   if (req.session.user)
+   {
+       var name = req.session.user[0].email;
+       console.log(name);
+        
+       req.session.destroy(function()
+       {
+           console.log(name + " logged out.");
+       });
+        res.render("landing");
+   }
+   else
+   {
+       console.log("Nobody is currently logged in!");
+   }
+};
+
