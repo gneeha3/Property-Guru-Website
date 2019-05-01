@@ -83,10 +83,54 @@ module.exports.postSearch = function(req,res)
 {
 	var db = req.db;
 	var county = req.body.county;
-	var price = req.body.price;
 	var bedrooms = req.body.bedrooms;
-    console.log(county,bedrooms);
 	var collection = db.get('property');
+	if(county=='Any' && bedrooms!="Any"){
+		
+		collection.find({"bedrooms":bedrooms}, function(err, docs) {
+			console.log(docs);
+			if (err) {
+				res.render('buySearch',{"message":"Error.Try again"});
+				
+			} else {
+				if(docs.length > 0){
+					res.render('buySearch',{"propertyList":docs,"flag":2});
+				} else {
+					res.render('buySearch',{"message":"No property listing found matching to filter criteria ","flag":3});
+				}		
+			}
+		});
+	} else {
+		if(bedrooms=='Any' && county!='Any'){
+		collection.find({"county":county}, function(err, docs) {
+			console.log(docs);
+			if (err) {
+				res.render('buySearch',{"message":"Error.Try again"});
+				
+			} else {
+				if(docs.length > 0){
+					res.render('buySearch',{"propertyList":docs,"flag":2});
+				} else {
+					res.render('buySearch',{"message":"No property listing found matching to filter criteria ","flag":3});
+				}		
+			}
+		});
+	} else {
+		if(bedrooms=='Any' && county=='Any'){
+		collection.find({},{}, function(err, docs) {
+			console.log(docs);
+			if (err) {
+				res.render('buySearch',{"message":"Error.Try again"});
+				
+			} else {
+				if(docs.length > 0){
+					res.render('buySearch',{"propertyList":docs,"flag":2});
+				} else {
+					res.render('buySearch',{"message":"No property listing found matching to filter criteria ","flag":3});
+				}		
+			}
+		});
+	} else {
 	collection.find({"county":county,"bedrooms":bedrooms}, function(err, docs) {
 		console.log(docs);
 		if (err) {
@@ -100,6 +144,10 @@ module.exports.postSearch = function(req,res)
 			}		
 		}
 	});
+	
+	}
+	}
+	}
 };
 
 
