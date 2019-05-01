@@ -3,7 +3,7 @@ html
   head
     meta(charset='ISO-8859-1')
     title Property Guru
-    link(rel='stylesheet', href='/styles/landing.css', type="text/css")
+    link(rel='stylesheet', href='/styles/landing.css', type='text/css')
     link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
     script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
@@ -15,142 +15,90 @@ html
       header
         nav.navbar.navbar-dark.navbar-expand-lg.bg-dark.fixed-top.scrolling-navbar
           #header_bar.container
-            a.navbar-brand(href='#') Property Guru
+            a.navbar-brand(href='/') Property Guru
             #basicExampleNav.collapse.navbar-collapse
               ul.navbar-nav.mr-auto
                 li.nav-item
-                  a.nav-link(href='#') Home for Buy search
+                  a.nav-link(href='/')
+                    | Home
                 li.nav-item
-                  a.nav-link(href='#services') Services
-                li.nav-item
-                  a.nav-link(href='#contact') Contact
-                li.nav-item
-                  a.nav-link(href='#contact') Dashboard
+                  a.nav-link(href='#contact') Sell
               ul.navbar-nav.ml-auto
                 li.nav-item
-                  a.nav-link(href='/login')
-                    i.fa.fa-sign-in.nav-item(aria-hidden='true')
-                    |  Login
-                li.nav-item
-                  a.nav-link(href='')
+                  a.nav-link(href='/logout')
                     i.fa.fa-user-plus.nav-item(aria-hidden='true')
-                    |  Register
+                    |  Logout
       // Main Navigation
       // Main layout
       main
         .container
-          section#gallery
-            #carousel.carousel.slide.carousel-fade(data-ride='carousel')
-              ol.carousel-indicators
-                li.active(data-target='#carousel', data-slide-to='0')
-                li(data-target='#carousel', data-slide-to='1')
-                li(data-target='#carousel', data-slide-to='2')
-              .carousel-inner.z-depth-1-half(role='listbox')
-                .carousel-item.active
-                  img.d-block.w-100(src='/images/1.jpg', alt='First slide')
-                .carousel-item
-                  img.d-block.w-100(src='/images/2.jpg', alt='Second slide')
-                .carousel-item
-                  img.d-block.w-100(src='/images/3.jpeg', alt='Third slide')
-              a.carousel-control-prev(href='#carousel', role='button', data-slide='prev')
-                span.carousel-control-prev-icon(aria-hidden='true')
-                span.sr-only Previous
-              a.carousel-control-next(href='#carousel', role='button', data-slide='next')
-                span.carousel-control-next-icon(aria-hidden='true')
-                span.sr-only Next
-          br
-          section#arrow
-            a(href='#services')
-              svg.arrows
-                path.a1(d='M0 0 L30 32 L60 0')
-                path.a2(d='M0 20 L30 52 L60 20')
-                path.a3(d='M0 40 L30 72 L60 40')
           section#services.text-center
-            h2.mb-5.font-weight-bold Buying Options can be searched below:
-            .row.d-flex.justify-content-center.mb-4
+            h5.mb-5.font-weight-bold
+             .row.d-flex.justify-content-center.mb-4.search-header
               .col-md-8
-                p
-                  | Search for the property you want to buy.
-            form.p-5
-              .md-form.form-sm
-                i.fa.fa-tag.prefix
-                input#form32.form-control.form-control-sm(type='text', placeholder='Enter search criteria')
-              //  label(for='form34') Subject
-              .text-center.mt-4
-                button.btn.btn-dark
-                  | Search
-                  i.fa.fa-paper-plane-o.ml-1
-            .row
-              .col-lg-4.col-md-12.mb-4
+                p Search your dream house.
+            br
+            br    
+            form.form-inline.d-flex.justify-content-center.mb-4(name='seachProperty', method='post', action='/buySearch')
+              input#myInput.form-control.mb-5.mr-sm-5(type='text', placeholder='Search for county..', name='county', value='santa clara')
+              label.mb-5.mr-sm-5(for='bedrooms') No of bedrooms
+              select.form-control.mb-5.mr-sm-5(name='bedrooms')
+                option(value='1') 1
+                option(value='2', selected='') 2
+                option(value='3') 3
+                option(value='4') 4
+                option(value='5+') 5+
+              input.btn.float-right.btn-dark.mb-5.mr-sm-5(type='submit', value='Search')
+             hr
+          .row
+             if(flag==2 && propertyList)
+               each property in propertyList
+                .col-lg-4.col-md-12.mb-4
+                 .z-depth-1-half
+                 a(href='/propertyDetails')
+                   console.log(property.image)
+                   img.img-fluid(src=property.image, alt='Nothing to display')
+                 h4.my-4.font-weight-bold 
+                   |$#{property.price}
+                 p #{property.description}
+             if(flag==1)
+              each property in allList
+               .col-lg-4.col-md-12.mb-4
                 .z-depth-1-half
                 a(href='/propertyDetails')
-                  img.img-fluid(src='/images/buy.jpg', alt='Nothing to display')
-                h4.my-4.font-weight-bold Property 1
-                p
-                  | Property 1 information
-                  | To be fetched from database
-              .col-lg-4.col-md-6.mb-4
-                .z-depth-1-half
-                a(href='#')
-                  img.img-fluid(src='/images/sell.jpg', alt='')
-                h4.my-4.font-weight-bold Property 2
-                p
-                | Property 2 information
-                | To be fetched from database
-              .col-lg-4.col-md-6.mb-4
-                .z-depth-1-half
-                a(href='#')
-                  img.img-fluid(src='/images/compare.jpg', alt='')
-                h4.my-4.font-weight-bold Property 3
-                p
-                | Property 3 information
-                | To be fetched from database
-              .col-lg-4.col-md-12.mb-4
-                .z-depth-1-half
-                a(href='#')
-                  img.img-fluid(src='/images/buy.jpg', alt='Nothing to display')
-                h4.my-4.font-weight-bold Property 4
-                p
-                | Property 4 information
-                | To be fetched from database
-              .col-lg-4.col-md-12.mb-4
-                .z-depth-1-half
-                a(href='#')
-                  img.img-fluid(src='/images/sell.jpg', alt='Nothing to display')
-                h4.my-4.font-weight-bold Property 5
-                p
-                | Property 5 information
-                | To be fetched from database
-              .col-lg-4.col-md-12.mb-4
-                .z-depth-1-half
-                a(href='#')
-                  img.img-fluid(src='/images/compare.jpg', alt='Nothing to display')
-                h4.my-4.font-weight-bold Property 6
-                p
-                | Property 6 information
-                | To be fetched from database
-
-
-      //Section: Contact end
-
-      footer.page-footer.font-small.unique-color-dark
-        .primary-color
-          .container
-            .row.py-4.d-flex.align-items-center
-              .col-md-6.col-lg-5.text-center.text-md-left.mb-4.mb-md-0
-                h6.mb-0.white-text
-                  | Get connected with us on social
-                  | networks!
-              .col-md-6.col-lg-7.text-center.text-md-right
-                a.fb-ic.ml-0
-                  i.fa.fa-facebook.white-text.mr-4
-                a.tw-ic
-                  i.fa.fa-twitter.white-text.mr-4
-                a.gplus-ic
-                  i.fa.fa-google-plus.white-text.mr-4
-                a.li-ic
-                  i.fa.fa-linkedin.white-text.mr-4
-                a.ins-ic
-                  i.fa.fa-instagram.white-text.mr-lg-4
-        .text-center.py-3
-          | � 2018 Copyright: Igniters
+                  console.log(property.image)
+                  img.img-fluid(src=property.image, alt='Nothing to display')
+                h4.my-4.font-weight-bold 
+                  |$#{property.price}
+                p #{property.description}
+             if(flag==3)
+               h5.mb-5.font-weight-bold
+                .d-flex.justify-content-center.mb-4.text-center
+                  p Sorry Cant find any listing matching with your search criteria.
+                  br
+                  br
+                  br
+                  br
+                  br
+                  br
+                  br
+            footer.page-footer.font-small.unique-color-dark
+              .primary-color
+                .container
+                  .row.py-4.d-flex.align-items-center
+                    .col-md-6.col-lg-5.text-center.text-md-left.mb-4.mb-md-0
+                      h6.mb-0.white-text
+                        | Get connected with us on
+                        | social networks!
+                    .col-md-6.col-lg-7.text-center.text-md-right
+                      a.fb-ic.ml-0
+                        i.fa.fa-facebook.white-text.mr-4
+                      a.tw-ic
+                        i.fa.fa-twitter.white-text.mr-4
+                      a.gplus-ic
+                        i.fa.fa-google-plus.white-text.mr-4
+                      a.li-ic
+                        i.fa.fa-linkedin.white-text.mr-4
+                      a.ins-ic
+                        i.fa.fa-instagram.white-text.mr-lg-4
+              .text-center.py-3 � 2018 Copyright: Igniters

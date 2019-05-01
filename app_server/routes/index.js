@@ -13,7 +13,8 @@ router.post('/login', modelMain.postLogin)
 router.get('/dashboard', cntrMain.dashboard)
 
 //New jade templates for final version
-router.get('/buySearch', cntrMain.buySearch)
+router.get('/buySearch', modelMain.buySearch)
+router.post('/buySearch', modelMain.postSearch)
 router.get('/propertyDetails', cntrMain.propertyDetails)
 
 

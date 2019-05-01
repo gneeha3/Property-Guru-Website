@@ -70,11 +70,7 @@ module.exports.dashboard = function(req,res)
 };
 
 //Get buy search page
-module.exports.buySearch = function(req,res)
-{
-	res.render('buySearch');
 
-};
 
 
 //Details of searched/selected property

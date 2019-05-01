@@ -116,3 +116,13 @@ flex-direction: row; }
   border-top: none;
   height: 400px;
 }
+
+.search-header{
+	position:relative;
+	top:60px;
+}
+
+.form-inline  {
+  display: inline-block;
+  right-margin:30px;
+}

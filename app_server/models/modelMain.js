@@ -79,6 +79,49 @@ module.exports.postLogin = function(req,res)
 	});
 };
 
+module.exports.postSearch = function(req,res)
+{
+	var db = req.db;
+	var county = req.body.county;
+	var price = req.body.price;
+	var bedrooms = req.body.bedrooms;
+    console.log(county,bedrooms);
+	var collection = db.get('property');
+	collection.find({"county":county,"bedrooms":bedrooms}, function(err, docs) {
+		console.log(docs);
+		if (err) {
+			res.render('buySearch',{"message":"Error.Try again"});
+			
+		} else {
+			if(docs.length > 0){
+				res.render('buySearch',{"propertyList":docs,"flag":2});
+			} else {
+				res.render('buySearch',{"message":"No property listing found matching to filter criteria ","flag":3});
+			}		
+		}
+	});
+};
+
+
+module.exports.buySearch = function(req,res)
+{
+	var db = req.db;
+	var collection = db.get('property');
+	collection.find({},{}, function(err, docs) {
+		console.log(docs);
+		if (err) {
+			res.render('buySearch',{"message":"Error.Try again"});
+			
+		} else {
+			if(docs.length > 0){
+				res.render('buySearch',{"allList":docs,"flag":1});
+			} else {
+				res.render('buySearch',{"message":"No property to display"});
+			}		
+		}
+	});
+
+};
 /*
  * Needs to be updated
  */
