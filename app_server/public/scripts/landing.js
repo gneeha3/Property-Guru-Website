@@ -13,7 +13,7 @@
             var var_marker = new google.maps.Marker({
                 position: var_location,
                 map: var_map,
-                title: "New York"
+                title: "San Jose"
             });
         }
 
