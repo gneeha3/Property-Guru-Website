@@ -72,9 +72,19 @@ module.exports.postLogin = function(req,res)
 		} else {
 			if(doc.length > 0){
 				req.session.user = doc;
-				console.log("Sucessfully logged in:"); 
-				console.log(req.session.user);
-				res.render('buySearch');
+				var collection = db.get('property');
+				collection.find({},{}, function(err, docs) {
+					if (err) {
+						res.render('buySearch',{"message":"Error.Try again","name":req.session.user[0].first_name});
+						
+					} else {
+						if(docs.length > 0){
+							res.render('buySearch',{"allList":docs,"flag":1,"name":req.session.user[0].first_name});
+						} else {
+							res.render('buySearch',{"message":"No property to display","name":req.session.user[0].first_name});
+						}		
+					}
+				});
 			} else {
 				res.render('login',{"message":"Entered email id or password doesnt match !!"});
 			}		
