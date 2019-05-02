@@ -10,6 +10,7 @@ html
     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
     script(src='/scripts/landing.js')
+    script(src='/scripts/propertyDetails.js')
   body
     div
       header
@@ -61,35 +62,32 @@ html
           br
           section#services.text-center
           .row
-              .col-lg-4.col-md-12.mb-4
-                .z-depth-1-half
-                a(href='#')
-                  img.img-fluid(src='/images/buy.jpg', alt='Nothing to display')
-                h4.my-4.font-weight-bold Property 1 Heading Details
+            if(allList)
+              each property in allList
+                .col-lg-4.col-md-12.mb-4
+                  .z-depth-1-half
+                  a(href='#')
+                    img.img-fluid(src='/images/buy.jpg', alt='Nothing to display' )
+                  h4.my-4.font-weight-bold Property #{property.description} Details
 
-              .col-lg-8.col-md-12.mb-4
-                .z-depth-1-half
-                a(href='#')
+                .col-lg-8.col-md-12.mb-4
+                  .z-depth-1-half
+                  a(href='#')
+                  h4.my-4.font-weight-bold Property #{property.description} Details
+                  .tab
+                    button.tablinks(onclick="openInfo(event, 'Information')") More Information
 
-                h4.my-4.font-weight-bold Property 1 Details
-                .tab
-                  button.tablinks(onclick="openTab(event, 'Info')") Information
-                  button.tablinks(onclick="openTab(event, 'Map')") Map
-                  button.tablinks(onclick="openTab(event, 'Contact')") Contact
-
-                #Information.tabcontent.default
-                  h3 Information
-                  p
-                  | Inforamtion about the property.
-                #Map.tabcontent.other
-                  h3 Map and Navigation
-                  p
-                  | Map and Navigation details.
-                #Contact.tabcontent.other
-                  h3 Contact
-                  p
-                  | Contact owner of the property
-
+                  #Information.tabcontent.default
+                    h3 Information
+                    p
+                    | Price: #{property.price}
+                    hr
+                    | Description: #{property.description}
+                    hr
+                    | Bedrooms: #{property.bedrooms}
+                    hr
+                    | County: #{property.county}
+                    hr
 
       //Section: Contact end
 

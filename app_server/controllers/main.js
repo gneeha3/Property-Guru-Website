@@ -73,12 +73,12 @@ module.exports.dashboard = function(req,res)
 
 
 
-//Details of searched/selected property
-module.exports.propertyDetails = function(req,res)
-{
-	res.render('propertyDetails');
-
-};
+// => modelMain.js, sending object alongwith
+// module.exports.propertyDetails = function(req,res)
+// {
+// 	res.render('propertyDetails');
+//
+// };
 
 //Get dashboard page
 module.exports.dashboard = function(req,res)
@@ -121,4 +121,3 @@ module.exports.logout = function(req, res)
        console.log("Nobody is currently logged in!");
    }
 };
-

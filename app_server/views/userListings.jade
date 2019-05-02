@@ -32,8 +32,8 @@ html
                   a.nav-link(href='/dashboard') Dashboard
               ul.navbar-nav.ml-auto
                 li.nav-item
-                 a.nav-link(href='/userListings')              
-                    |  Hi #{name}               
+                 a.nav-link(href='/userListings')
+                    |  Hi #{name}
                 li.nav-item
                   a.nav-link(href='/logout')
                     i.fa.fa-sign-out.nav-item(aria-hidden='true')
@@ -48,7 +48,7 @@ html
               .col-md-8
                 p Below are your listings.
             br
-            br   
+            br
           .row
              if(allList)
                each property in allList
@@ -56,7 +56,7 @@ html
                  .z-depth-1-half
                  a(href='/propertyDetails')
                    img.img-fluid(src=property.image, alt='Nothing to display')
-                 h4.my-4.font-weight-bold 
+                 h4.my-4.font-weight-bold
                    |$#{property.price}
                  p #{property.description}
                  form(name="deleteproperty",method="post",action="/delete")
