@@ -44,6 +44,50 @@ module.exports.postRegister = function(req, res) {
 	});
 };
 
+/*
+ * POST property page.
+ */
+module.exports.postProperty = function(req, res) {
+	// Set our internal DB variable
+	var db = req.db;
+
+	// Get our form values. These rely on the "name" attributes.
+	var firstName = req.body.firstName;
+	var lastName = req.body.lastName;
+	var email = req.body.email;
+	var phone = req.body.phone;
+	var password = req.body.password;
+
+	// Set our collection.
+	var collection = db.get('property');
+
+	collection.find({
+		"email" : email
+	}, function(err, doc) {
+		console.log(doc);
+		if (doc.length!=0) {
+			console.log("1");
+			res.render('property',{"message":"Property already exists"});
+		}
+		else{
+			collection.insert({
+				"first_name" : firstName,
+				"last_name" : lastName,
+				"email" : email,
+				"phone" : phone,
+				"password" : password
+			}, function(err, doc) {
+				if (err) {
+					res.render('property',{"message":"Error.Try again!!"});
+				} else {
+					// Forward to success page
+					res.render('property',{"message":"Property Posted Successfully!!"});
+				}
+			});
+
+		}
+	});
+};
 
 module.exports.postLogin = function(req,res)
 {

@@ -1,0 +1,275 @@
+doctype html
+html
+  head
+    meta(charset='ISO-8859-1')
+    |   
+    title Property Guru
+    |   
+    link(rel='stylesheet', href='/styles/landing.css')
+    |   
+    link(rel='stylesheet', href='/styles/login.css')
+    |   
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+    |   
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    |   
+    script(src='/scripts/register.js')
+    |   
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
+  body
+    div
+      header
+        nav.navbar.navbar-dark.navbar-expand-lg.bg-dark.fixed-top.scrolling-navbar
+          #header_bar.container
+            a.navbar-brand(href='/') Property Guru
+            |           
+            #basicExampleNav.collapse.navbar-collapse
+              ul.navbar-nav.mr-auto
+                li.nav-item
+                  a.nav-link(href='/') Home
+                |               
+                li.nav-item
+                  a.nav-link(href='/#services') Services
+                |               
+                li.nav-item
+                  a.nav-link(href='/#contact') Contact
+                |               
+                li.nav-item
+                  a.nav-link(href='/#contact') Dashboard
+              |             
+              ul.navbar-nav.ml-auto
+                li.nav-item
+                  a.nav-link(href='/login')
+                    i.fa.fa-sign-in.nav-item(aria-hidden='true')
+                    |  Login
+                |               
+                li.nav-item
+                  a.nav-link(href='/register')
+                    i.fa.fa-user-plus.nav-item(aria-hidden='true')
+                    |  Register
+      |     
+      main
+        br
+        |       
+        br
+        |       
+        br
+        |       
+        .container
+          section
+            .container
+              .d-flex.justify-content-center.h-100
+                .card
+                  .card-header
+                    h3 Add Property
+                  |                 
+                  .card-body
+                    form#addproperty.needs-validation(name='addproperty', method='post', action='/property', novalidate='')
+                      label Property type:
+                      |                     
+                      .input-group.mb-3
+                        .input-group-prepend
+                          .input-group-text
+                            .form-check-inline
+                              label.form-check-label
+                                input.form-check-input(type='radio', name='optradio')
+                                | Apartment
+                            |                           
+                            .form-check-inline
+                              label.form-check-label
+                                input.form-check-input(type='radio', name='optradio')
+                                | Independent house
+                            |                           
+                            .form-check-inline.disabled
+                              label.form-check-label
+                                input.form-check-input(type='radio', name='optradio')
+                                | Villa
+                      |                     
+                      label(for='propName') Property Name:
+                      |                     
+                      .input-group.form-group
+                        .input-group-prepend
+                          span.input-group-text
+                            i.fa.fa-home
+                        |                       
+                        input#propName.form-control(type='text', name='propName', required='')
+                        |                       
+                        .invalid-feedback Please enter Property Name
+                      |                     
+                      label(for='description') Description:
+                      |                     
+                      .input-group.form-group
+                        .input-group-prepend
+                          span.input-group-text
+                            i.fa.fa-home
+                        |                       
+                        textarea#description.form-control(rows='3', placeholder='Type here..', name='description', required='')
+                        |                       
+                        .invalid-feedback Please enter your Property Description
+                      |                     
+                      label(for='bedrooms') Bedrooms:
+                      |                     
+                      .input-group.form-group
+                        .input-group-prepend
+                          span.input-group-text
+                            i.fa.fa-hotel
+                        |                       
+                        select#bedrooms.form-control
+                          option 1
+                          |                         
+                          option 2
+                          |                         
+                          option 3
+                          |                         
+                          option 4
+                      |                     
+                      label Furnish Type:
+                      |                     
+                      .input-group.mb-3
+                        .input-group-prepend
+                          .input-group-text
+                            .form-check-inline
+                              label.form-check-label
+                                input.form-check-input(type='radio', name='optradio')
+                                | Unfurnished
+                            |                           
+                            .form-check-inline
+                              label.form-check-label
+                                input.form-check-input(type='radio', name='optradio')
+                                | Semi-furnished
+                            |                           
+                            .form-check-inline.disabled
+                              label.form-check-label
+                                input.form-check-input(type='radio', name='optradio')
+                                | Fully Furnished
+                      |                     
+                      label Facilities:
+                      |                     
+                      .form-check
+                        label.form-check-label
+                          input.form-check-input(type='checkbox', value='')
+                          | Swimming pool
+                      |                     
+                      .form-check
+                        label.form-check-label
+                          input.form-check-input(type='checkbox', value='')
+                          | Gym
+                      |                     
+                      .form-check
+                        label.form-check-label
+                          input.form-check-input(type='checkbox', value='')
+                          | Laundry unit
+                      |                     
+                      .form-check
+                        label.form-check-label
+                          input.form-check-input(type='checkbox', value='')
+                          | Dishwasher
+                      br
+                      |                     
+                      label(for='propName') Image URL:
+                      |                     
+                      .input-group.form-group
+                        .input-group-prepend
+                          span.input-group-text
+                            i.fa.fa-home
+                        |                       
+                        input#imgurl.form-control(type='text', name='imgurl', required='')
+                        |                       
+                        .invalid-feedback Please enter valid URL
+                      |                     
+                      label Address
+                      |                     
+                      .input-group.form-group
+                        .input-group-prepend
+                          span.input-group-text
+                        |                       
+                        input#streetaddr1.form-control(type='text', placeholder='Street Address 1', name='streetaddr1', required='')
+                        |                       
+                        .invalid-feedback Please enter street address
+                      |                     
+                      .input-group.form-group
+                        .input-group-prepend
+                          span.input-group-text
+                        |                       
+                        input#streetaddr2.form-control(type='text', placeholder='Street Address 2', name='streetaddr2')
+                        |                       
+                        .invalid-feedback Please enter price details
+                      |                     
+                      .input-group.form-group
+                        .input-group-prepend
+                          span.input-group-text
+                        |                       
+                        input#county.form-control(type='text', placeholder='County', name='county', required='')
+                        |                       
+                        .invalid-feedback Please enter county
+                      |                     
+                      .input-group.form-group
+                        .input-group-prepend
+                          span.input-group-text
+                        |                       
+                        input#city.form-control(type='text', placeholder='City', name='city', required='')
+                        |                       
+                        .invalid-feedback Please enter city
+                      |                     
+                      .input-group.form-group
+                        .input-group-prepend
+                          span.input-group-text
+                        |                       
+                        input#state.form-control(type='text', placeholder='State', name='state', required='')
+                        |                       
+                        .invalid-feedback Please enter state
+                      |                     
+                      .input-group.form-group
+                        .input-group-prepend
+                          span.input-group-text
+                        |                       
+                        input#zipcode.form-control(type='text', placeholder='zipcode', name='zipcode', required='')
+                        |                       
+                        .invalid-feedback Please enter zipcode
+                      |                     
+                      label Price
+                      |                     
+                      .input-group.form-group
+                        .input-group-prepend
+                          span.input-group-text
+                            i.fa.fa-money
+                        |                       
+                        input#price.form-control(type='text', placeholder='Price', name='price', required='')
+                        |                       
+                        .invalid-feedback Please enter price details
+                      |                     
+                      label Built-up Area
+                      |                     
+                      .input-group.form-group
+                        .input-group-prepend
+                          span.input-group-text
+                            i.fa.fa-location
+                        |                       
+                        input#sft.form-control(type='text', placeholder='Area in sft', name='sft', required='')
+                        |                       
+                        .invalid-feedback Please enter area
+                      |                     
+                      label Contact
+                      |                     
+                      .input-group.form-group
+                        .input-group-prepend
+                          span.input-group-text
+                            i.fa.fa-envelope
+                        |                       
+                        input#email.form-control(type='text', placeholder='xxx@xxx.xxx', name='email', required='', pattern='^.+@.+..{2,4}$')
+                        |                       
+                        .invalid-feedback
+                          | Please enter valid Email Id
+                      |                     
+                      .input-group.form-group
+                        .input-group-prepend
+                          span.input-group-text
+                            i.fa.fa-phone
+                        |                       
+                        input#phone.form-control(type='text', placeholder='999 999-9999', name='phone', required='', pattern='^[0-9][0-9][0-9] +[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$')
+                        |                       
+                        .invalid-feedback
+                          | Please enter valid Phone number
+                      |                     
+                      .form-group
+                        input.btn.float-right.btn-dark(type='submit', value='Post')

@@ -56,6 +56,12 @@ module.exports.register = function(req,res)
 	res.render('register');
 };
 
+//Get property page
+module.exports.property = function(req,res)
+{
+	res.render('property');
+};
+
 //Get login page
 module.exports.login = function(req,res)
 {
