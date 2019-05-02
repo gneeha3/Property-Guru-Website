@@ -8,17 +8,16 @@ var modelMain = require("../models/modelMain");
 router.get('/', cntrMain.home)
 router.post('/', modelMain.contactMessage)
 router.get('/register', cntrMain.register)
-router.get('/login', cntrMain.login)
 router.post('/register', modelMain.postRegister)
+router.get('/login', cntrMain.login)
 router.post('/login', modelMain.postLogin)
-router.get('/dashboard', cntrMain.dashboard)
 router.get('/logout', cntrMain.logout)
-
-//New jade templates for final version
+router.get('/dashboard', cntrMain.dashboard)
 router.get('/buySearch', cntrMain.loggedIn,modelMain.buySearch)
 router.post('/buySearch', modelMain.postSearch)
 router.get('/propertyDetails', cntrMain.propertyDetails)
-
+router.get('/userListings',modelMain.userListings)
+router.post('/delete',modelMain.deleteProperty)
 
 
 module.exports = router;

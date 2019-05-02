@@ -1,0 +1,99 @@
+doctype html
+html
+  head
+    meta(charset='ISO-8859-1')
+    title Property Guru
+    link(rel='stylesheet', href='/styles/landing.css', type='text/css')
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
+    script(src='/scripts/landing.js')
+  body
+    div
+      header
+        nav.navbar.navbar-dark.navbar-expand-lg.bg-dark.fixed-top.scrolling-navbar
+          #header_bar.container
+            a.navbar-brand(href='/') Property Guru
+            #basicExampleNav.collapse.navbar-collapse
+              ul.navbar-nav.mr-auto
+                li.nav-item
+                  a.nav-link(href='/') Home
+                li.nav-item
+                  a.nav-link(href='/#services') Services
+                li.nav-item
+                  a.nav-link(href='/#contact') Contact
+                li.nav-item
+                  a.nav-link(href='/buySearch') Buy
+                li.nav-item
+                  a.nav-link(href='') Sell
+                li.nav-item
+                  a.nav-link(href='/dashboard') Dashboard
+              ul.navbar-nav.ml-auto
+                li.nav-item
+                 a.nav-link(href='/userListings')              
+                    |  Hi #{name}               
+                li.nav-item
+                  a.nav-link(href='/logout')
+                    i.fa.fa-sign-out.nav-item(aria-hidden='true')
+                    |  Logout
+      // Main Navigation
+      // Main layout
+      main
+        .container
+          section#services.text-center
+            h5.mb-5.font-weight-bold
+             .row.d-flex.justify-content-center.mb-4.search-header
+              .col-md-8
+                p Below are your listings.
+            br
+            br   
+          .row
+             if(allList)
+               each property in allList
+                .col-lg-4.col-md-12.mb-4
+                 .z-depth-1-half
+                 a(href='/propertyDetails')
+                   img.img-fluid(src=property.image, alt='Nothing to display')
+                 h4.my-4.font-weight-bold 
+                   |$#{property.price}
+                 p #{property.description}
+                 form(name="deleteproperty",method="post",action="/delete")
+                  button.btn.btn-dark(type='submit', value='#{property._id}',name='property_id')
+                      | Delete
+             if(message)
+               h5.mb-5.font-weight-bold
+                .d-flex.justify-content-center.mb-4.text-center
+                  p #{message}
+                  br
+                  br
+                  br
+                  br
+                  br
+                  br
+                  br
+                  br
+                  br
+                  br
+                  br
+            footer.page-footer.font-small.unique-color-dark
+              .primary-color
+                .container
+                  .row.py-4.d-flex.align-items-center
+                    .col-md-6.col-lg-5.text-center.text-md-left.mb-4.mb-md-0
+                      h6.mb-0.white-text
+                        | Get connected with us on
+                        | social networks!
+                    .col-md-6.col-lg-7.text-center.text-md-right
+                      a.fb-ic.ml-0
+                        i.fa.fa-facebook.white-text.mr-4
+                      a.tw-ic
+                        i.fa.fa-twitter.white-text.mr-4
+                      a.gplus-ic
+                        i.fa.fa-google-plus.white-text.mr-4
+                      a.li-ic
+                        i.fa.fa-linkedin.white-text.mr-4
+                      a.ins-ic
+                        i.fa.fa-instagram.white-text.mr-lg-4
+              .text-center.py-3 � 2018 Copyright: Igniters

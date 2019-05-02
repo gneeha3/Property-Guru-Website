@@ -185,23 +185,55 @@ module.exports.contactMessage = function(req, res) {
 
 };
 
+module.exports.userListings = function(req,res)
+{
+	var db = req.db;
+	var collection = db.get('property');
+	collection.find({"email":req.session.user[0].email}, function(err, docs) {
+		console.log(docs);
+		console.log(req.session.user[0].email);
+		if (err) {
+			res.render('userListings',{"message":"Error.Try again","name":req.session.user[0].first_name});
+			
+		} else {
+			if(docs.length > 0){
+				res.render('userListings',{"allList":docs,"name":req.session.user[0].first_name});
+			} else {
+				res.render('userListings',{"message":"No property to display","name":req.session.user[0].first_name});
+			}		
+		}
+	});
+
+};
+
+
 /*
  * Needs to be updated
  */
-module.exports.post_deletedest = function(req, res) {
-	var hotel_name = req.body.hotel_name;
+module.exports.deleteProperty = function(req, res) {
+	var property_id = req.body.property_id;
 	var db = req.db;
-	var collection = db.get('destination');
+	var collection = db.get('property');
 
 	collection.remove({
-		"hotel_name" : hotel_name
+		"_id" : property_id
 	}, function(err, doc) {
 		if (err) {
-			res.send("Delete failed.");
+			res.render('userListings',{"message":"Error.Try again","name":req.session.user[0].first_name});
 		} else {
-			res.render('index', {
-				"title" : 'admin dashboard.',
-				"message" : 'Destination details deleted successfully'
+			collection.find({"email":req.session.user[0].email}, function(err, docs) {
+				console.log(docs);
+				console.log(req.session.user[0].email);
+				if (err) {
+					res.render('userListings',{"message":"Error.Try again","name":req.session.user[0].first_name});
+					
+				} else {
+					if(docs.length > 0){
+						res.render('userListings',{"allList":docs,"name":req.session.user[0].first_name});
+					} else {
+						res.render('userListings',{"message":"No property to display","name":req.session.user[0].first_name});
+					}		
+				}
 			});
 		}
 	});
