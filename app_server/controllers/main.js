@@ -92,15 +92,12 @@ module.exports.loggedIn = function(req, res, next)
    console.log("Checking if logged in:");
    if (req.session.user)
    {
-       // Proceed if the user is logged in.
-       console.log("Logged in: "); 
-       console.log(req.session.user);
        next(); 
    } 
    else 
    {
        console.log("Not logged in");
-       res.send("You must first log in.");
+       res.redirect('/login');
    }
 };
 
