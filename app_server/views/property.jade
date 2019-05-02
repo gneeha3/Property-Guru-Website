@@ -114,7 +114,7 @@ html
                           span.input-group-text
                             i.fa.fa-hotel
                         |                       
-                        select#bedrooms.form-control
+                        select#bedrooms.form-control.col-md-2
                           option 1
                           |                         
                           option 2
@@ -128,39 +128,39 @@ html
                       .input-group.mb-3
                         .input-group-prepend
                           .input-group-text
-                            .form-check-inline
+                            .form-check-inline.col-auto
                               label.form-check-label
-                                input.form-check-input(type='radio', name='optradio')
+                                input.form-check-input(type='radio', name='furnradio')
                                 | Unfurnished
                             |                           
-                            .form-check-inline
+                            .form-check-inline.col-auto
                               label.form-check-label
-                                input.form-check-input(type='radio', name='optradio')
+                                input.form-check-input(type='radio', name='furnradio')
                                 | Semi-furnished
                             |                           
-                            .form-check-inline.disabled
+                            .form-check-inline.col-auto
                               label.form-check-label
-                                input.form-check-input(type='radio', name='optradio')
+                                input.form-check-input(type='radio', name='furnradio')
                                 | Fully Furnished
                       |                     
                       label Facilities:
                       |                     
-                      .form-check
+                      .form-check-inline.col-auto
                         label.form-check-label
                           input.form-check-input(type='checkbox', value='')
                           | Swimming pool
                       |                     
-                      .form-check
+                      .form-check-inline.col-auto
                         label.form-check-label
                           input.form-check-input(type='checkbox', value='')
                           | Gym
                       |                     
-                      .form-check
+                      .form-check-inline.col-auto
                         label.form-check-label
                           input.form-check-input(type='checkbox', value='')
                           | Laundry unit
                       |                     
-                      .form-check
+                      .form-check-inline.col-auto
                         label.form-check-label
                           input.form-check-input(type='checkbox', value='')
                           | Dishwasher
@@ -193,7 +193,7 @@ html
                         |                       
                         input#streetaddr2.form-control(type='text', placeholder='Street Address 2', name='streetaddr2')
                         |                       
-                        .invalid-feedback Please enter price details
+                        .invalid-feedback Please enter street address
                       |                     
                       .input-group.form-group
                         .input-group-prepend

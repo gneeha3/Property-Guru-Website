@@ -52,17 +52,29 @@ module.exports.postProperty = function(req, res) {
 	var db = req.db;
 
 	// Get our form values. These rely on the "name" attributes.
-	var firstName = req.body.firstName;
-	var lastName = req.body.lastName;
+	var proptype = req.body.optradio;
+	var propName = req.body.propName;
+	var description = req.body.description;
+	var furntype = req.body.furnradio;
+	var image = req.body.imgurl;
+	var addr1 = req.body.streetaddr1;
+	var addr2 = req.body.streetaddr2;
+	var county = req.body.county;
+	var city = req.body.city;
+	var state = req.body.state;
+	var zipcode = req.body.zipcode;
+	var price = req.body.price;
+	var area = req.body.sft;
+
 	var email = req.body.email;
 	var phone = req.body.phone;
-	var password = req.body.password;
+	
 
 	// Set our collection.
 	var collection = db.get('property');
 
 	collection.find({
-		"email" : email
+		"propName" : propName
 	}, function(err, doc) {
 		console.log(doc);
 		if (doc.length!=0) {
@@ -71,16 +83,27 @@ module.exports.postProperty = function(req, res) {
 		}
 		else{
 			collection.insert({
-				"first_name" : firstName,
-				"last_name" : lastName,
+				"proptype":proptype,
+				"propName":propName,
+				"description":description,
+				"furntype":furntype,
+				"image":image,
+				"addr1":addr1,
+				"addr2":addr2,
+				"county":county,
+				"city":city,
+				"state":state,
+				"zipcode":zipcode,
+				"price":price,
+				"area":area,
 				"email" : email,
 				"phone" : phone,
-				"password" : password
+				
 			}, function(err, doc) {
 				if (err) {
 					res.render('property',{"message":"Error.Try again!!"});
 				} else {
-					// Forward to success page
+					
 					res.render('property',{"message":"Property Posted Successfully!!"});
 				}
 			});
