@@ -9,7 +9,6 @@ html
     script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
-    script(type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp")
     script(src='/scripts/landing.js')
   body
     div
@@ -111,25 +110,25 @@ html
               // Grid column
               .col-lg-5.col-md-12
                 // Form contact
-                form.p-5
+                form.p-5(name="contactMessage",method="post",action="/")
                   .md-form.form-sm
                     i.fa.fa-user.prefix
-                    input#form3.form-control.form-control-sm(type='text')
+                    input#form3.form-control.form-control-sm(type='text',name='name')
                     label(for='form3') Your name
                   .md-form.form-sm
                     i.fa.fa-envelope.prefix
-                    input#form2.form-control.form-control-sm(type='text')
+                    input#form2.form-control.form-control-sm(type='text',name='email')
                     label(for='form2') Your email
                   .md-form.form-sm
                     i.fa.fa-tag.prefix
-                    input#form32.form-control.form-control-sm(type='text')
+                    input#form32.form-control.form-control-sm(type='text',name='subject')
                     label(for='form34') Subject
                   .md-form.form-sm
                     i.fa.fa-pencil.prefix
-                    textarea#form8.md-textarea.form-control.form-control-sm(type='text', rows='4')
+                    textarea#form8.md-textarea.form-control.form-control-sm(type='text', rows='4',name='message')
                     label(for='form8') Your message
                   .text-center.mt-4
-                    button.btn.btn-dark
+                    button.btn.btn-dark(type='submit')
                       | Send
                       i.fa.fa-paper-plane-o.ml-1
               .col-lg-7.col-md-12

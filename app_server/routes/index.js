@@ -6,6 +6,7 @@ var modelMain = require("../models/modelMain");
 
 /* GET home page. */
 router.get('/', cntrMain.home)
+router.post('/', modelMain.contactMessage)
 router.get('/register', cntrMain.register)
 router.get('/login', cntrMain.login)
 router.post('/register', modelMain.postRegister)
