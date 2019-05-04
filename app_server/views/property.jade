@@ -102,7 +102,7 @@ html
                       .input-group.form-group
                         .input-group-prepend
                           span.input-group-text
-                            i.fa.fa-home
+                            i.fa.fa-info
                         |                       
                         textarea#description.form-control(rows='3', placeholder='Type here..', name='description', required='')
                         |                       
@@ -170,7 +170,7 @@ html
                       .input-group.form-group
                         .input-group-prepend
                           span.input-group-text
-                            i.fa.fa-home
+                            i.fa.fa-image
                         |                       
                         input#imgurl.form-control(type='text', name='imgurl', required='')
                         |                       
@@ -181,6 +181,7 @@ html
                       .input-group.form-group
                         .input-group-prepend
                           span.input-group-text
+                           i.fa.fa-address-card
                         |                       
                         input#streetaddr1.form-control(type='text', placeholder='Street Address 1', name='streetaddr1', required='')
                         |                       
@@ -189,6 +190,7 @@ html
                       .input-group.form-group
                         .input-group-prepend
                           span.input-group-text
+                            i.fa.fa-address-card
                         |                       
                         input#streetaddr2.form-control(type='text', placeholder='Street Address 2', name='streetaddr2')
                         |                       
@@ -197,6 +199,7 @@ html
                       .input-group.form-group
                         .input-group-prepend
                           span.input-group-text
+                            i.fa.fa-flag
                         |                       
                         input#county.form-control(type='text', placeholder='County', name='county', required='')
                         |                       
@@ -205,6 +208,7 @@ html
                       .input-group.form-group
                         .input-group-prepend
                           span.input-group-text
+                            i.fa.fa-building
                         |                       
                         input#city.form-control(type='text', placeholder='City', name='city', required='')
                         |                       
@@ -213,6 +217,7 @@ html
                       .input-group.form-group
                         .input-group-prepend
                           span.input-group-text
+                            i.fa.fa-building
                         |                       
                         input#state.form-control(type='text', placeholder='State', name='state', required='')
                         |                       
@@ -221,6 +226,7 @@ html
                       .input-group.form-group
                         .input-group-prepend
                           span.input-group-text
+                           i.fa.fa-map-pin
                         |                       
                         input#zipcode.form-control(type='text', placeholder='zipcode', name='zipcode', required='')
                         |                       
@@ -233,7 +239,7 @@ html
                           span.input-group-text
                             i.fa.fa-money
                         |                       
-                        input#price.form-control(type='text', placeholder='Price', name='price', required='')
+                        input#price.form-control(type='number', placeholder='Price', name='price', required='')
                         |                       
                         .invalid-feedback Please enter price details
                       |                     
@@ -242,24 +248,14 @@ html
                       .input-group.form-group
                         .input-group-prepend
                           span.input-group-text
-                            i.fa.fa-location
+                            i.fa.fa-square
                         |                       
-                        input#sft.form-control(type='text', placeholder='Area in sft', name='sft', required='')
+                        input#sft.form-control(type='number', placeholder='Area in sft', name='sft', required='')
                         |                       
                         .invalid-feedback Please enter area
                       |                     
                       label Contact
-                      |                     
-                      .input-group.form-group
-                        .input-group-prepend
-                          span.input-group-text
-                            i.fa.fa-envelope
-                        |                       
-                        input#email.form-control(type='text', placeholder='xxx@xxx.xxx', name='email', required='', pattern='^.+@.+..{2,4}$')
-                        |                       
-                        .invalid-feedback
-                          | Please enter valid Email Id
-                      |                     
+                      |                                        
                       .input-group.form-group
                         .input-group-prepend
                           span.input-group-text
@@ -270,7 +266,8 @@ html
                         .invalid-feedback
                           | Please enter valid Phone number format(999 999-9999)
                       |                     
-                      .form-group
+                      .form-group.buttongroup
                         input.btn.btn-dark.addbutton(type='reset', value='Reset')
-                        input.btn.btn-dark.addbutton(type='cancel', value='Cancel')
+                        a(href='/buYSearch')
+                         input.btn.btn-dark.addbutton(type='button', value='Cancel')
                         input.btn.btn-dark.addbutton(type='submit', value='Submit')

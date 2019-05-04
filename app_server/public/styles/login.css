@@ -15,11 +15,16 @@ width: 400px;
 width: 700px;	
 }
 
-.addbutton{
-	margin:10px;
-	padding:10px;
-	
+.buttongroup{
+	  display:flex;
+  justify-content:space-around;
 }
+}
+.addbutton{
+	width:100%;
+	margin:10px;	
+}
+
 .card-header h3{
 color: Black;
 }
