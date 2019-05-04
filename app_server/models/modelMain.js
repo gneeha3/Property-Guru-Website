@@ -68,7 +68,7 @@ module.exports.postProperty = function(req, res) {
 	var price = req.body.price;
 	var area = req.body.sft;
 
-	var email = req.body.email;
+	var email = req.session.user[0].email ;
 	var phone = req.body.phone;
 	
 console.log(proptype,propName,description,furntype,addr1);
@@ -132,6 +132,9 @@ module.exports.postLogin = function(req,res)
 			if(doc.length > 0){
 				req.session.user = doc;
 				res.redirect('/buySearch');
+			}
+			else{
+				res.render('login',{"message":"Please enter correct credentials"});
 			}
 		}
 	});
