@@ -83,15 +83,14 @@ html
                         input#password.form-control(type='password', placeholder='Password', name='password', required='',pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$', onchange='form.confirmPassword.pattern = RegExp.escape(this.value);')
                         .invalid-feedback
                           | Please enter valid
-                          | password.
+                          | password (Atleast 1 uppercase,1 lowercase and 1 digit with minimum of 8 characters.)
                       .input-group.form-group
                         .input-group-prepend
                           span.input-group-text
                             i.fa.fa-key
                         input#confirmPassword.form-control(type='password', placeholder='Confirm Password', name='confirmPassword', required='')
                         .invalid-feedback
-                          | Please enter valid
-                          | password.
+                          | Passwords does not match
                       .form-group
                         input.btn.float-right.btn-dark(type='submit', value='Register')
                   .card-footer

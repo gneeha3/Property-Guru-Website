@@ -55,7 +55,9 @@ module.exports.postProperty = function(req, res) {
 	var proptype = req.body.optradio;
 	var propName = req.body.propName;
 	var description = req.body.description;
+	var bedrooms=req.body.bedrooms;
 	var furntype = req.body.furnradio;
+	var facilities=req.body.facilities;
 	var image = req.body.imgurl;
 	var addr1 = req.body.streetaddr1;
 	var addr2 = req.body.streetaddr2;
@@ -69,7 +71,7 @@ module.exports.postProperty = function(req, res) {
 	var email = req.body.email;
 	var phone = req.body.phone;
 	
-
+console.log(proptype,propName,description,furntype,addr1);
 	// Set our collection.
 	var collection = db.get('property');
 
@@ -82,11 +84,14 @@ module.exports.postProperty = function(req, res) {
 			res.render('property',{"message":"Property already exists"});
 		}
 		else{
+			console.log("1");
 			collection.insert({
 				"proptype":proptype,
 				"propName":propName,
+				"bedrooms":bedrooms,
 				"description":description,
 				"furntype":furntype,
+				"facilities":facilities,
 				"image":image,
 				"addr1":addr1,
 				"addr2":addr2,

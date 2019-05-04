@@ -8,10 +8,18 @@ position:absolute !important;
 height: auto;
 top: 80px;
 margin-bottom: auto;
-width: 700px;
+width: 400px;
 }
 
+.propertyForm{
+width: 700px;	
+}
 
+.addbutton{
+	margin:10px;
+	padding:10px;
+	
+}
 .card-header h3{
 color: Black;
 }

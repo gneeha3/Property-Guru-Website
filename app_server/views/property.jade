@@ -35,18 +35,19 @@ html
                   a.nav-link(href='/#contact') Contact
                 |               
                 li.nav-item
-                  a.nav-link(href='/#contact') Dashboard
-              |             
+                  a.nav-link(href='/buySearch') Buy
+                li.nav-item
+                  a.nav-link(href='/property') Sell
+                li.nav-item
+                  a.nav-link(href='/dashboard') Dashboard            
               ul.navbar-nav.ml-auto
                 li.nav-item
-                  a.nav-link(href='/login')
-                    i.fa.fa-sign-in.nav-item(aria-hidden='true')
-                    |  Login
-                |               
+                 a.nav-link(href='/userListings')
+                    |  Hi #{name}
                 li.nav-item
-                  a.nav-link(href='/register')
-                    i.fa.fa-user-plus.nav-item(aria-hidden='true')
-                    |  Register
+                  a.nav-link(href='/logout')
+                    i.fa.fa-sign-out.nav-item(aria-hidden='true')
+                    |  Logout
       |     
       main
         br
@@ -59,9 +60,9 @@ html
           section
             .container
               .d-flex.justify-content-center.h-100
-                .card
+                .card.propertyForm
                   .card-header
-                    h3 Add Property
+                    h3 House Details
                   |                 
                   .card-body
                     form#addproperty.needs-validation(name='addproperty', method='post', action='/property', novalidate='')
@@ -72,17 +73,17 @@ html
                           .input-group-text
                             .form-check-inline
                               label.form-check-label
-                                input.form-check-input(type='radio', name='optradio')
+                                input.form-check-input(type='radio', name='optradio',value='Apartment',checked='')
                                 | Apartment
                             |                           
                             .form-check-inline
                               label.form-check-label
-                                input.form-check-input(type='radio', name='optradio')
+                                input.form-check-input(type='radio', name='optradio',value='Independent house')
                                 | Independent house
                             |                           
                             .form-check-inline.disabled
                               label.form-check-label
-                                input.form-check-input(type='radio', name='optradio')
+                                input.form-check-input(type='radio', name='optradio',value='Villa')
                                 | Villa
                       |                     
                       label(for='propName') Property Name:
@@ -114,14 +115,12 @@ html
                           span.input-group-text
                             i.fa.fa-hotel
                         |                       
-                        select#bedrooms.form-control.col-md-2
-                          option 1
-                          |                         
-                          option 2
-                          |                         
-                          option 3
-                          |                         
-                          option 4
+                        select#bedrooms.form-control.col-md-2(name='bedrooms')
+                          option(value='1', selected='') 1
+                          option(value='2') 2
+                          option(value='3') 3
+                          option(value='4') 4
+                          option(value='5+') 5+
                       |                     
                       label Furnish Type:
                       |                     
@@ -130,39 +129,39 @@ html
                           .input-group-text
                             .form-check-inline.col-auto
                               label.form-check-label
-                                input.form-check-input(type='radio', name='furnradio')
+                                input.form-check-input(type='radio', name='furnradio',value='Unfurnished',checked='')
                                 | Unfurnished
                             |                           
                             .form-check-inline.col-auto
                               label.form-check-label
-                                input.form-check-input(type='radio', name='furnradio')
+                                input.form-check-input(type='radio', name='furnradio',value='Semi-furnished')
                                 | Semi-furnished
                             |                           
                             .form-check-inline.col-auto
                               label.form-check-label
-                                input.form-check-input(type='radio', name='furnradio')
+                                input.form-check-input(type='radio', name='furnradio',value='Fully Furnished')
                                 | Fully Furnished
                       |                     
                       label Facilities:
                       |                     
                       .form-check-inline.col-auto
                         label.form-check-label
-                          input.form-check-input(type='checkbox', value='')
+                          input.form-check-input(type='checkbox',name="facilities", value='Swimming pool')
                           | Swimming pool
                       |                     
                       .form-check-inline.col-auto
                         label.form-check-label
-                          input.form-check-input(type='checkbox', value='')
+                          input.form-check-input(type='checkbox',name="facilities",  value='Gym')
                           | Gym
                       |                     
                       .form-check-inline.col-auto
                         label.form-check-label
-                          input.form-check-input(type='checkbox', value='')
+                          input.form-check-input(type='checkbox',name="facilities",  value='Laundry unit')
                           | Laundry unit
                       |                     
                       .form-check-inline.col-auto
                         label.form-check-label
-                          input.form-check-input(type='checkbox', value='')
+                          input.form-check-input(type='checkbox',name="facilities",  value='Dishwasher')
                           | Dishwasher
                       br
                       |                     
@@ -269,7 +268,9 @@ html
                         input#phone.form-control(type='text', placeholder='999 999-9999', name='phone', required='', pattern='^[0-9][0-9][0-9] +[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$')
                         |                       
                         .invalid-feedback
-                          | Please enter valid Phone number
+                          | Please enter valid Phone number format(999 999-9999)
                       |                     
                       .form-group
-                        input.btn.float-right.btn-dark(type='submit', value='Post')
+                        input.btn.btn-dark.addbutton(type='reset', value='Reset')
+                        input.btn.btn-dark.addbutton(type='cancel', value='Cancel')
+                        input.btn.btn-dark.addbutton(type='submit', value='Submit')

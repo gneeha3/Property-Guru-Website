@@ -16,49 +16,33 @@ html
       header
         nav.navbar.navbar-dark.navbar-expand-lg.bg-dark.fixed-top.scrolling-navbar
           #header_bar.container
-            a.navbar-brand(href='#') Property Guru
+            a.navbar-brand(href='/') Property Guru
             #basicExampleNav.collapse.navbar-collapse
               ul.navbar-nav.mr-auto
-              li.nav-item
-                  a.nav-link(href='/buySearch') Home for Buy search
                 li.nav-item
-                  a.nav-link(href='#services') Services
+                  a.nav-link(href='/') Home
                 li.nav-item
-                  a.nav-link(href='#contact') Contact
+                  a.nav-link(href='/#services') Services
                 li.nav-item
-                  a.nav-link(href='#contact') Dashboard
+                  a.nav-link(href='/#contact') Contact
+                li.nav-item
+                  a.nav-link(href='/buySearch') Buy
+                li.nav-item
+                  a.nav-link(href='/property') Sell
+                li.nav-item
+                  a.nav-link(href='/dashboard') Dashboard
               ul.navbar-nav.ml-auto
                 li.nav-item
-                  a.nav-link(href='/login')
-                    i.fa.fa-sign-in.nav-item(aria-hidden='true')
-                    |  Login
+                 a.nav-link(href='/userListings')
+                    |  Hi #{name}
                 li.nav-item
-                  a.nav-link(href='')
-                    i.fa.fa-user-plus.nav-item(aria-hidden='true')
-                    |  Register
+                  a.nav-link(href='/logout')
+                    i.fa.fa-sign-out.nav-item(aria-hidden='true')
+                    |  Logout
       // Main Navigation
       // Main layout
       main
         .container
-          section#gallery
-            #carousel.carousel.slide.carousel-fade(data-ride='carousel')
-              ol.carousel-indicators
-                li.active(data-target='#carousel', data-slide-to='0')
-                li(data-target='#carousel', data-slide-to='1')
-                li(data-target='#carousel', data-slide-to='2')
-              .carousel-inner.z-depth-1-half(role='listbox')
-                .carousel-item.active
-                  img.d-block.w-100(src='/images/1.jpg', alt='First slide')
-                .carousel-item
-                  img.d-block.w-100(src='/images/2.jpg', alt='Second slide')
-                .carousel-item
-                  img.d-block.w-100(src='/images/3.jpeg', alt='Third slide')
-              a.carousel-control-prev(href='#carousel', role='button', data-slide='prev')
-                span.carousel-control-prev-icon(aria-hidden='true')
-                span.sr-only Previous
-              a.carousel-control-next(href='#carousel', role='button', data-slide='next')
-                span.carousel-control-next-icon(aria-hidden='true')
-                span.sr-only Next
           br
           section#services.text-center
           .row
