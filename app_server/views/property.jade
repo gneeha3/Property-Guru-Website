@@ -59,6 +59,10 @@ html
         .container
           section
             .container
+              if(message)
+               .d-flex.justify-content-end.h-100.error-msg
+                 .alert.alert-dark
+                   | #{message} 
               .d-flex.justify-content-center.h-100
                 .card.propertyForm
                   .card-header

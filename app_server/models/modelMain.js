@@ -81,7 +81,7 @@ console.log(proptype,propName,description,furntype,addr1);
 		console.log(doc);
 		if (doc.length!=0) {
 			console.log("1");
-			res.render('property',{"message":"Property already exists"});
+			res.render('property',{"message":"Property already exists","name":req.session.user[0].first_name});
 		}
 		else{
 			console.log("1");
@@ -106,10 +106,10 @@ console.log(proptype,propName,description,furntype,addr1);
 				
 			}, function(err, doc) {
 				if (err) {
-					res.render('property',{"message":"Error.Try again!!"});
+					res.render('property',{"message":"Error.Try again!!","name":req.session.user[0].first_name});
 				} else {
 					
-					res.render('property',{"message":"Property Posted Successfully!!"});
+					res.render('property',{"message":"Property Posted Successfully!!","name":req.session.user[0].first_name});
 				}
 			});
 
