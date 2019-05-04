@@ -59,7 +59,7 @@ module.exports.register = function(req,res)
 //Get property page
 module.exports.property = function(req,res)
 {
-	res.render('property');
+	res.render('property',{"name":req.session.user[0].first_name});
 };
 
 //Get login page
@@ -69,22 +69,7 @@ module.exports.login = function(req,res)
 
 };
 
-//Get dashboard page
-module.exports.dashboard = function(req,res)
-{
 
-};
-
-//Get buy search page
-
-
-
-// => modelMain.js, sending object alongwith
-// module.exports.propertyDetails = function(req,res)
-// {
-// 	res.render('propertyDetails');
-//
-// };
 
 //Get dashboard page
 module.exports.dashboard = function(req,res)

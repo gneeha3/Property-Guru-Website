@@ -346,33 +346,3 @@ module.exports.deleteProperty = function(req, res) {
 
 
 
-module.exports.post_updatedest = function(req, res) {
-	var db = req.db;
-	var collection = db.get('destination');
-
-	var hname = req.body.hotel_name;
-	var cName = req.body.city;
-	var price = req.body.cost;
-	var hAddress = req.body.hotel_address;
-	var cNumber = req.body.phone;
-
-	collection.update({
-		"hotel_name" : hname
-	}, {
-		$set : {
-			"hotel_address" : hAddress,
-			"phone" : cNumber,
-			"cost" : price
-		}
-	}, function(err, doc) {
-		if (err) {
-			res.send("Update failed.");
-		} else {
-			res.render('index', {
-				"title" : 'admin dashboard.',
-				"message" : 'Destination details updated successfully'
-			});
-		}
-	});
-
-};
