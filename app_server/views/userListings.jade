@@ -59,8 +59,8 @@ html
                  h4.my-4.font-weight-bold
                    |$#{property.price}
                  p #{property.description}
-                 form(name="deleteproperty",method="post",action="/delete")
-                  button.btn.btn-dark(type='submit', value='#{property._id}',name='property_id')
+                 form(name="deleteproperty",method="post",action="/deleteprop/#{property._id}")
+                  button.btn.btn-dark(type='submit', value='#{property._id}',name='propertyid')
                       | Delete
              if(message)
                h5.mb-5.font-weight-bold

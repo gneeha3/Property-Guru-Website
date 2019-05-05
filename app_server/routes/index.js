@@ -17,9 +17,9 @@ router.get('/logout', cntrMain.logout)
 router.get('/dashboard', cntrMain.dashboard)
 router.get('/buySearch', cntrMain.loggedIn,modelMain.buySearch)
 router.post('/buySearch', modelMain.postSearch)
-router.post('/propertyDetails', modelMain.propertyDetails)
+router.get('/property/:propertyid', modelMain.propertyDetails)
 router.get('/userListings',modelMain.userListings)
-router.post('/delete',modelMain.deleteProperty)
+router.post('/deleteprop/:propertyid',modelMain.deleteProperty)
 
 
 module.exports = router;

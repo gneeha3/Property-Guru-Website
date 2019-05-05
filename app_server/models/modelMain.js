@@ -235,7 +235,7 @@ module.exports.buySearch = function(req,res)
 
 //Fetch property details as per the object id value from buySearch.
 module.exports.propertyDetails = function(req, res) {
-	var property_id = req.body.property_id;
+	var property_id = req.params.propertyid;
 	var db = req.db;
 	var collection = db.get('property');
 
@@ -307,7 +307,7 @@ module.exports.userListings = function(req,res)
  * Needs to be updated
  */
 module.exports.deleteProperty = function(req, res) {
-	var property_id = req.body.property_id;
+	var property_id = req.params.propertyid;
 	var db = req.db;
 	var collection = db.get('property');
 
@@ -325,7 +325,7 @@ module.exports.deleteProperty = function(req, res) {
 
 				} else {
 					if(docs.length > 0){
-						res.render('userListings',{"allList":docs,"name":req.session.user[0].first_name});
+						res.redirect('/userListings');
 					} else {
 						res.render('userListings',{"message":"No property to display","name":req.session.user[0].first_name});
 					}

@@ -133,8 +133,8 @@ html
                  h4.my-4.font-weight-bold
                    |$#{property.price}
                  p #{property.description}
-                 form(name="propertyDetails",method="post",action="/propertyDetails")
-                  button.btn.btn-dark(type='submit', value='#{property._id}',name='property_id')
+                 form(name="propertyDetails",method="get",action="/property/#{property._id}")
+                  button.btn.btn-dark(type='submit', value='#{property._id}',name='propertyid')
                    | More Details
 
              if(flag==1)
@@ -145,8 +145,8 @@ html
                 h4.my-4.font-weight-bold
                   |$#{property.price}
                 p #{property.description}
-                form(name="propertyDetails",method="post",action="/propertyDetails")
-                 button.btn.btn-dark(type='submit', value='#{property._id}',name='property_id')
+                form(name="propertyDetails",method="get",action="/property/#{property._id}")
+                 button.btn.btn-dark(type='submit', value='#{property._id}',name='propertyid')
                   | More Details
 
 
