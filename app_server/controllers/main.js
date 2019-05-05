@@ -105,7 +105,7 @@ module.exports.logout = function(req, res)
        {
            console.log(name + " logged out.");
        });
-        res.render("landing");
+        res.redirect("/");
    }
    else
    {
