@@ -53,7 +53,7 @@ html
             br
             form.form-inline.d-flex.justify-content-center.mb-4(name='seachProperty', method='post', action='/buySearch')
               label.mb-5.mr-sm-5.form-label(for='county') Select county :
-              select.form-control.mb-5.mr-sm-5(name='county',size=3)
+              select.form-control.mb-5.mr-sm-5(name='county')
                 option(value='Any', selected='') Any
                 option(value='Alameda') Alameda
                 option(value='Alpine') Alpine
@@ -130,7 +130,8 @@ html
                  .z-depth-1-half
                  a(href='/propertyDetails')
                    console.log(property.image)
-                   img.img-fluid(src=property.image, alt='Nothing to display')
+                   object(data=property.image, width='200', height='200')
+                    img.img-fluid(src='/images/sell.jpg', alt='Nothing to display')
                  h4.my-4.font-weight-bold
                    |$#{property.price}
                  p #{property.description}
@@ -144,7 +145,8 @@ html
                 .z-depth-1-half
                 a(href='/propertyDetails')
                   console.log(property.image)
-                  img.img-fluid(src=property.image, alt='Nothing to display')
+                  object(data=property.image, width='200', height='200')
+                    img.img-fluid(src='/images/sell.jpg', alt='Nothing to display')
                 h4.my-4.font-weight-bold
                   |$#{property.price} is the price.
                 p #{property.description}
@@ -164,23 +166,23 @@ html
                   br
                   br
                   br
-            footer.page-footer.font-small.unique-color-dark
-              .primary-color
-                .container
-                  .row.py-4.d-flex.align-items-center
-                    .col-md-6.col-lg-5.text-center.text-md-left.mb-4.mb-md-0
-                      h6.mb-0.white-text
-                        | Get connected with us on
-                        | social networks!
-                    .col-md-6.col-lg-7.text-center.text-md-right
-                      a.fb-ic.ml-0
-                        i.fa.fa-facebook.white-text.mr-4
-                      a.tw-ic
-                        i.fa.fa-twitter.white-text.mr-4
-                      a.gplus-ic
-                        i.fa.fa-google-plus.white-text.mr-4
-                      a.li-ic
-                        i.fa.fa-linkedin.white-text.mr-4
-                      a.ins-ic
-                        i.fa.fa-instagram.white-text.mr-lg-4
-              .text-center.py-3 � 2018 Copyright: Igniters
+          footer.page-footer.font-small.unique-color-dark
+            .primary-color
+               .container
+                .row.py-4.d-flex.align-items-center
+                  .col-md-6.col-lg-5.text-center.text-md-left.mb-4.mb-md-0
+                    h6.mb-0.white-text
+                      | Get connected with us on
+                      | social networks!
+                  .col-md-6.col-lg-7.text-center.text-md-right
+                    a.fb-ic.ml-0
+                      i.fa.fa-facebook.white-text.mr-4
+                    a.tw-ic
+                      i.fa.fa-twitter.white-text.mr-4
+                    a.gplus-ic
+                      i.fa.fa-google-plus.white-text.mr-4
+                    a.li-ic
+                      i.fa.fa-linkedin.white-text.mr-4
+                    a.ins-ic
+                      i.fa.fa-instagram.white-text.mr-lg-4
+            .text-center.py-3 � 2018 Copyright: Igniters
