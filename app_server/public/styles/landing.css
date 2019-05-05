@@ -79,6 +79,10 @@ flex-direction: row; }
 	  height:900px !important;
 }
 
+.img-size {
+		  width:100%;
+	      height:300px;
+}
 .tab {
     overflow: hidden;
     border: 1px solid #ccc;

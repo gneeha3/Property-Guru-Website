@@ -55,9 +55,7 @@ html
                each property in allList
                 .col-lg-4.col-md-12.mb-4
                  .z-depth-1-half
-                 a(href='/propertyDetails')
-                   object(data=property.image, width='200', height='200')
-                    img.img-fluid(src='/images/sell.jpg', alt='Nothing to display')
+                 img.img-size(src=property.image, alt='Nothing to display', onerror="this.src='/images/sell.jpg';")
                  h4.my-4.font-weight-bold
                    |$#{property.price}
                  p #{property.description}
