@@ -204,10 +204,65 @@ html
                         .input-group-prepend
                           span.input-group-text
                             i.fa.fa-flag
-                        |                       
-                        input#county.form-control(type='text', placeholder='County', name='county', required='')
-                        |                       
-                        .invalid-feedback Please enter county
+                         select.form-control(name='county')
+                           option(value='Alameda' selected='') Alameda
+                           option(value='Alpine') Alpine
+                           option(value='Amador') Amador
+                           option(value='Butte') Butte
+                           option(value='Calaveras') Calaveras
+                           option(value='Colusa') Colusa
+                           option(value='Contra Costa') Contra Costa
+                           option(value='Del Norte') Del Norte
+                           option(value='El Dorado') El Dorado
+                           option(value='Fresno') Fresno
+                           option(value='Glenn') Glenn
+                           option(value='Humboldt') Humboldt
+                           option(value='Imperial') Imperial
+                           option(value='Inyo') Inyo
+                           option(value='Kern') Kern
+                           option(value='Kings') Kings
+                           option(value='Lake') Lake
+                           option(value='Lassen') Lassen
+                           option(value='Los Angeles') Los Angeles
+                           option(value='Madera') Madera
+                           option(value='Marin') Marin
+                           option(value='Mariposa') Mariposa
+                           option(value='Mendocino') Mendocino
+                           option(value='Merced') Merced
+                           option(value='Modoc') Modoc
+                           option(value='Mono') Mono
+                           option(value='Monterey') Monterey
+                           option(value='Napa') Napa
+                           option(value='Nevada') Nevada
+                           option(value='Orange') Orange
+                           option(value='Placer') Placer
+                           option(value='Plumas') Plumas
+                           option(value='Riverside') Riverside
+                           option(value='Sacramento') Sacramento
+                           option(value='San Benito') San Benito
+                           option(value='San Bernardino') San Bernardino
+                           option(value='San Diego') San Diego
+                           option(value='San Francisco') San Francisco
+                           option(value='San Joaquin') San Joaquin
+                           option(value='San Luis Obispo') San Luis Obispo
+                           option(value='San Mateo') San Mateo
+                           option(value='Santa Barbara') Santa Barbara
+                           option(value='Santa Clara') Santa Clara
+                           option(value='Santa Cruz') Santa Cruz
+                           option(value='Shasta') Shasta
+                           option(value='Sierra') Sierra
+                           option(value='Siskiyou') Siskiyou
+                           option(value='Solano') Solano
+                           option(value='Sonoma') Sonoma
+                           option(value='Stanislaus') Stanislaus
+                           option(value='Sutter') Sutter
+                           option(value='Tehama') Tehama
+                           option(value='Trinity') Trinity
+                           option(value='Tulare') Tulare
+                           option(value='Tuolumne') Tuolumne
+                           option(value='Tulare') Ventura
+                           option(value='Tulare') Yolo
+                           option(value='Tulare') Yuba
                       |                     
                       .input-group.form-group
                         .input-group-prepend
@@ -243,7 +298,7 @@ html
                           span.input-group-text
                             i.fa.fa-money
                         |                       
-                        input#price.form-control(type='number', placeholder='Price', name='price', required='')
+                        input#price.form-control(type='number',min='0', placeholder='Price', name='price', required='')
                         |                       
                         .invalid-feedback Please enter price details
                       |                     
