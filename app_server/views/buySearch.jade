@@ -129,7 +129,8 @@ html
                each property in propertyList
                 .col-lg-4.col-md-12.mb-4
                  .z-depth-1-half
-                 img.img-size(src=property.image, alt='Nothing to display', onerror="this.src='/images/sell.jpg';")
+                 a(href='/property/#{property._id}')
+                  img.img-size(src=property.image, alt='Nothing to display', onerror="this.src='/images/sell.jpg';")
                  h4.my-4.font-weight-bold
                    |$#{property.price}
                  p #{property.description}
@@ -141,7 +142,8 @@ html
               each property in allList
                .col-lg-4.col-md-12.mb-4
                 .z-depth-1-half
-                img.img-size(src=property.image, alt='Nothing to display', onerror="this.src='/images/sell.jpg';")
+                a(href='/property/#{property._id}')
+                  img.img-size(src=property.image, alt='Nothing to display', onerror="this.src='/images/sell.jpg';")
                 h4.my-4.font-weight-bold
                   |$#{property.price}
                 p #{property.description}
