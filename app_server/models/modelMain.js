@@ -245,24 +245,12 @@ collection.find({
 		if (err) {
 			res.render('propertyDetails',{"message":"Error.Try again","name":req.session.user[0].first_name});
 		} else {
-			collection.find({"_id":property_id}, function(err, docs) {
-				console.log("Property ID is :", req.params.id);
-				// console.log(id);
-				console.log(req.session.user[0].email);
-				if (err) {
-					res.render('propertyDetails',{"allList":docs, "message":"Error.Try again. Property not found.","name":req.session.user[0].first_name});
-					console.log("Details not found!", docs);
-
-				} else {
-					if(docs.length > 0){
-						res.render('propertyDetails',{"allList":docs,"name":req.session.user[0].first_name});
-						console.log("Details found are: ", docs);
+					if(doc.length > 0){
+						res.render('propertyDetails',{"allList":doc,"name":req.session.user[0].first_name});
 					} else {
 						res.render('propertyDetails',{"message":"No property to display","name":req.session.user[0].first_name});
 					}
 				}
-			});
-		}
 	});
 };
 //End

@@ -45,6 +45,8 @@ html
         .container
           br
           section#services.text-center
+          br
+          br
           .row
             if(allList)
               each property in allList
@@ -52,26 +54,32 @@ html
                   .z-depth-1-half
                   a(href='#')
                     img.img-fluid(src='/images/buy.jpg', alt='Nothing to display' )
-                  h4.my-4.font-weight-bold Property #{property.description} Details
+                  h4.my-4.font-weight-bold.text-center #{property.propName}
 
                 .col-lg-8.col-md-12.mb-4
                   .z-depth-1-half
                   a(href='#')
-                  h4.my-4.font-weight-bold Property #{property.description} Details
+                  h4.my-4.font-weight-bold #{property.description} 
                   .tab
                     button.tablinks(onclick="openInfo(event, 'Information')") More Information
 
                   #Information.tabcontent.default
-                    h3 Information
                     p
-                    | Price: #{property.price}
+                    | Selling Price: $#{property.price}
                     hr
-                    | Description: #{property.description}
+                    | House Address: #{property.addr1} #{property.addr2} #{property.city} #{property.state} #{property.zipcode}
                     hr
-                    | Bedrooms: #{property.bedrooms}
+                    | House Type: #{property.proptype}
+                    hr
+                    | Furnishing : #{property.furntype}
+                    hr
+                    | Bedroom count: #{property.bedrooms}
                     hr
                     | County: #{property.county}
                     hr
+                    | Total Area: #{property.area} Sq.Ft
+                    hr
+                    | Contact Owner: #{property.email} / #{property.phone}
 
       //Section: Contact end
 
