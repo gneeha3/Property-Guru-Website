@@ -4,4 +4,9 @@
   align: center;
   border: 20px;
   border-color: blue;
+  top:50px;
+  position:relative;
+}
+html{
+  overflow:hidden;
 }
