@@ -273,9 +273,9 @@ module.exports.contactMessage = function(req, res) {
 				"message" : message
 			}, function(err, doc) {
 				if (err) {
-					res.redirect('/');
+					res.redirect('/#contact');
 				}else{
-					res.redirect('/');
+					res.redirect('/#contact');
 				}
 			});
 

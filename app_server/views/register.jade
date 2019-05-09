@@ -88,7 +88,7 @@ html
                         input#password.form-control(type='password', placeholder='Password', name='password', required='',pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$', onchange='form.confirmPassword.pattern = RegExp.escape(this.value);')
                         .invalid-feedback
                           | Please enter valid
-                          | password (Atleast 1 uppercase,1 lowercase and 1 digit with minimum of 8 characters.)
+                          | password (Atleast 1 uppercase,1 lowercase and 1 digit with minimum of 8 characters.No special characters)
                       .input-group.form-group
                         .input-group-prepend
                           span.input-group-text

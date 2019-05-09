@@ -10,6 +10,7 @@ html
     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
     script(src='/scripts/landing.js')
+    script(src='/scripts/register.js')
   body
     div
       header
@@ -100,7 +101,7 @@ html
                   img.img-fluid(src='/images/compare.jpg', alt='')
                 h4.my-4.font-weight-bold Dashboard
                 p
-                  | visualize house price changes over past
+                  | Visualize house price changes over past
                   | years to decide your right fit
           // Section: Contact
           section#contact
@@ -111,22 +112,25 @@ html
               // Grid column
               .col-lg-5.col-md-12
                 // Form contact
-                form.p-5(name="contactMessage",method="post",action="/")
+                form.p-5.needs-validation(name="contactMessage",method="post",action="/", novalidate='')
                   .md-form.form-sm
                     i.fa.fa-user.prefix
-                    input#form3.form-control.form-control-sm(type='text',name='name')
+                    input#form3.form-control.form-control-sm(type='text',name='name',placeholder='Name')
                     label(for='form3') Your name
                   .md-form.form-sm
                     i.fa.fa-envelope.prefix
-                    input#form2.form-control.form-control-sm(type='text',name='email')
+                    input#form2.form-control.form-control-sm(type='text',name='email', required='', pattern='^.+@.+\..{2,4}$',placeholder='xxx@xxx.xxx')
+                    .invalid-feedback Please enter valid email id.
                     label(for='form2') Your email
                   .md-form.form-sm
                     i.fa.fa-tag.prefix
-                    input#form32.form-control.form-control-sm(type='text',name='subject')
+                    input#form32.form-control.form-control-sm(type='text',name='subject',placeholder='Enter Subject here', required='')
+                    .invalid-feedback Please enter message subject.
                     label(for='form34') Subject
                   .md-form.form-sm
                     i.fa.fa-pencil.prefix
-                    textarea#form8.md-textarea.form-control.form-control-sm(type='text', rows='4',name='message')
+                    textarea#form8.md-textarea.form-control.form-control-sm(type='text', rows='4',name='message',placeholder='Enter your message', required='')
+                    .invalid-feedback Please enter message.
                     label(for='form8') Your message
                   .text-center.mt-4
                     button.btn.btn-dark(type='submit')
