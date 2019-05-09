@@ -131,7 +131,8 @@ html
                  .z-depth-1-half
                  a(href='/property/#{property._id}')
                   img.img-size(src=property.image, alt='Nothing to display', onerror="this.src='/images/sell.jpg';")
-                 h4.my-4.font-weight-bold
+                 h4.my-4.font-weight-bold #{property.propName}
+                 h5.my-4.font-weight-bold
                    |$#{property.price}
                  p #{property.description}
                  form(name="propertyDetails",method="get",action="/property/#{property._id}")
@@ -144,7 +145,8 @@ html
                 .z-depth-1-half
                 a(href='/property/#{property._id}')
                   img.img-size(src=property.image, alt='Nothing to display', onerror="this.src='/images/sell.jpg';")
-                h4.my-4.font-weight-bold
+                h4.my-4.font-weight-bold #{property.propName}
+                h5.my-4.font-weight-bold
                   |$#{property.price}
                 p #{property.description}
                 form(name="propertyDetails",method="get",action="/property/#{property._id}")
