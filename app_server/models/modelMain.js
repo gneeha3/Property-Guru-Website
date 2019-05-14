@@ -226,7 +226,7 @@ module.exports.buySearch = function(req,res)
 			if(docs.length > 0){
 				res.render('buySearch',{"allList":docs,"flag":1,"name":req.session.user[0].first_name});
 			} else {
-				res.render('buySearch',{"message":"No property to display","name":req.session.user[0].first_name});
+				res.render('buySearch',{"message":"No property to display","flag":3,"name":req.session.user[0].first_name});
 			}
 		}
 	});
