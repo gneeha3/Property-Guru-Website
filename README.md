@@ -15,6 +15,6 @@ The webiste had 3 main functionalities:
 3.Dashboard
 
 Like if a prospective seller wants to add a new property he can do by clicking on sell option.
-He will asked to fill a form about property details with an image to upload and his contact details.
-IF a prospective buyer wants to buy he can click on buy oprion and search his dream house.
+He will be asked to fill a form about property details with an image to upload and his contact details.
+IF a prospective buyer wants to buy he can click on buy option and search his dream house.
 Dashboard gives user average house rate insights and family insights about counties in california.
