@@ -9,7 +9,7 @@ We made use of EXPRESS Framework
 Used Tableau Public for dashboard creation.
 Express sessions for session management
 
-The webiste had 3 main functionalities:
+The website had 3 main functionalities:
 1.Buy
 2.Sell
 3.Dashboard
