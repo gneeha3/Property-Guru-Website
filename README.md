@@ -1,6 +1,6 @@
 # Property-Guru
 
-This is a webiste which helps prospectiver buyer and seller to invest on a property in state of california
+This is a website which helps prospective buyer and seller to invest on a property in state of california
 This is data visulaization project done under CMPE 280 professor Ron Mak
 
 We used nodeJS as backend and Jade template for front end.
